@@ -20,7 +20,7 @@ class Res50(nn.Module):
 
         initialize_weights(self.modules())
 
-        res = models.resnet50(pretrained=pretrained)
+        res = models.resnet50()#pretrained=pretrained)
         # pre_wts = torch.load(model_path)
         # res.load_state_dict(pre_wts)
         self.frontend = nn.Sequential(
