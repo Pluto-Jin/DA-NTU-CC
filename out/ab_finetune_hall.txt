@@ -1,0 +1,2161 @@
+[0]
+{'STD_SIZE': [544, 960], 'TRAIN_SIZE': [480, 848], 'DATA_PATH': '/home/jinc0008/dataset/CrowdCounting/', 'VAL_MODE': 'hall', 'DATA_GT': 'k15_s4', 'MEAN_STD': [[0.40088356, 0.40479671, 0.37334814], [0.21536005, 0.20919993, 0.22569714]], 'LABEL_FACTOR': 1, 'LOG_PARA': 100.0, 'RESUME_MODEL': '', 'TRAIN_BATCH_SIZE': 6, 'VAL_BATCH_SIZE': 6}
+============Using Res50=============
+cfg is None in CC.py
+num_parameters: 8674625
+===================Loaded Pretrained GCC================
+2020-10-22 13:48:39.815964: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.1
+/home/jinc0008/anaconda3/envs/torch1/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:82: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule.See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+/home/jinc0008/anaconda3/envs/torch1/lib/python3.6/site-packages/torch/nn/functional.py:2390: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+  warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+[ep 1][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.04]
+[ep 1][it 60][loss 0.0002][lr 0.000010][0.48s]
+        [cnt: gt: 2.0 pred: 1.25]
+[ep 1][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.04]
+[ep 1][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 5.17]
+[ep 1][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.37]
+[ep 1][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.64]
+[ep 1][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 0.01]
+[ep 1][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.50]
+[ep 1][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.09]
+[ep 1][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.45]
+[ep 1][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.73]
+[ep 1][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.77]
+[ep 1][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.23]
+[ep 1][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 9.23]
+[ep 1][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.39]
+[ep 1][it 480][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.21]
+train time: 254.54s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+0
+    [mae 1.11 mse 1.62], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_1_mae_1.11_mse_1.62] , [mae 1.11], [mse 1.62]
+==================================================
+val time: 101.23s
+[ep 2][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.32]
+[ep 2][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.21]
+[ep 2][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.06]
+[ep 2][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.09]
+[ep 2][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.53]
+[ep 2][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 2.66]
+[ep 2][it 210][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.26]
+[ep 2][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.64]
+[ep 2][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.00]
+[ep 2][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.86]
+[ep 2][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.08]
+[ep 2][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.43]
+[ep 2][it 390][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.70]
+[ep 2][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.27]
+[ep 2][it 450][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.57]
+[ep 2][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.34]
+train time: 260.21s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+1
+    [mae 0.57 mse 0.95], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_2_mae_0.57_mse_0.95] , [mae 0.57], [mse 0.95]
+==================================================
+val time: 101.37s
+[ep 3][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.07]
+[ep 3][it 60][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.14]
+[ep 3][it 90][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 16.0 pred: 11.83]
+[ep 3][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 3][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.68]
+[ep 3][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.11]
+[ep 3][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.69]
+[ep 3][it 240][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.04]
+[ep 3][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.91]
+[ep 3][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.96]
+[ep 3][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.57]
+[ep 3][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.99]
+[ep 3][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 2.82]
+[ep 3][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.03]
+[ep 3][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 7.41]
+[ep 3][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.14]
+train time: 255.94s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+2
+    [mae 0.58 mse 0.93], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_3_mae_0.58_mse_0.93] , [mae 0.58], [mse 0.93]
+==================================================
+val time: 100.18s
+[ep 4][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.14]
+[ep 4][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.04]
+[ep 4][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.46]
+[ep 4][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.41]
+[ep 4][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.02]
+[ep 4][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.03]
+[ep 4][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 2.38]
+[ep 4][it 240][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 4][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.05]
+[ep 4][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.75]
+[ep 4][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.18]
+[ep 4][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.69]
+[ep 4][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 4][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.43]
+[ep 4][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.93]
+[ep 4][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 11.39]
+train time: 257.37s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+3
+    [mae 0.56 mse 0.97], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_4_mae_0.56_mse_0.97] , [mae 0.56], [mse 0.97]
+==================================================
+val time: 100.41s
+[ep 5][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.47]
+[ep 5][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.15]
+[ep 5][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.59]
+[ep 5][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.42]
+[ep 5][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 11.0 pred: 9.75]
+[ep 5][it 180][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 6.48]
+[ep 5][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.52]
+[ep 5][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.19]
+[ep 5][it 270][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.82]
+[ep 5][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.85]
+[ep 5][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.32]
+[ep 5][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.36]
+[ep 5][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 12.05]
+[ep 5][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.16]
+[ep 5][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.62]
+[ep 5][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.28]
+train time: 256.95s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+4
+    [mae 0.56 mse 0.98], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_5_mae_0.56_mse_0.98] , [mae 0.56], [mse 0.98]
+==================================================
+val time: 99.91s
+[ep 6][it 30][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.65]
+[ep 6][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.45]
+[ep 6][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.00]
+[ep 6][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.89]
+[ep 6][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.19]
+[ep 6][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 2.85]
+[ep 6][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.57]
+[ep 6][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.36]
+[ep 6][it 270][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.25]
+[ep 6][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.69]
+[ep 6][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.30]
+[ep 6][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.96]
+[ep 6][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.21]
+[ep 6][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.49]
+[ep 6][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 5.15]
+[ep 6][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.17]
+train time: 259.04s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+5
+    [mae 0.54 mse 0.85], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_6_mae_0.54_mse_0.85] , [mae 0.54], [mse 0.85]
+==================================================
+val time: 101.07s
+[ep 7][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.01]
+[ep 7][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.11]
+[ep 7][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 1.92]
+[ep 7][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 5.51]
+[ep 7][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.61]
+[ep 7][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.45]
+[ep 7][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.00]
+[ep 7][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.04]
+[ep 7][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 5.82]
+[ep 7][it 300][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.85]
+[ep 7][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.05]
+[ep 7][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.24]
+[ep 7][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.17]
+[ep 7][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.20]
+[ep 7][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.52]
+[ep 7][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.06]
+train time: 259.67s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+6
+    [mae 0.63 mse 0.95], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_6_mae_0.54_mse_0.85] , [mae 0.54], [mse 0.85]
+==================================================
+val time: 99.17s
+[ep 8][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.79]
+[ep 8][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.70]
+[ep 8][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.64]
+[ep 8][it 120][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.44]
+[ep 8][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.83]
+[ep 8][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.21]
+[ep 8][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.09]
+[ep 8][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.10]
+[ep 8][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 11.0 pred: 9.37]
+[ep 8][it 300][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.69]
+[ep 8][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.53]
+[ep 8][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.01]
+[ep 8][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 12.78]
+[ep 8][it 420][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.17]
+[ep 8][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.02]
+[ep 8][it 480][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 16.0 pred: 11.18]
+train time: 256.60s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+7
+    [mae 0.54 mse 0.86], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_6_mae_0.54_mse_0.85] , [mae 0.54], [mse 0.85]
+==================================================
+val time: 100.41s
+[ep 9][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.46]
+[ep 9][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.05]
+[ep 9][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.05]
+[ep 9][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 4.03]
+[ep 9][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 9.45]
+[ep 9][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.26]
+[ep 9][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.00]
+[ep 9][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.33]
+[ep 9][it 270][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.01]
+[ep 9][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.92]
+[ep 9][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.32]
+[ep 9][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.06]
+[ep 9][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.57]
+[ep 9][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.58]
+[ep 9][it 450][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.60]
+[ep 9][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.54]
+train time: 261.24s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+8
+    [mae 0.59 mse 0.90], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_6_mae_0.54_mse_0.85] , [mae 0.54], [mse 0.85]
+==================================================
+val time: 101.16s
+[ep 10][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 10][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.06]
+[ep 10][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.25]
+[ep 10][it 120][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 5.92]
+[ep 10][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.32]
+[ep 10][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.26]
+[ep 10][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.10]
+[ep 10][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.65]
+[ep 10][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.36]
+[ep 10][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.00]
+[ep 10][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.15]
+[ep 10][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.05]
+[ep 10][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.18]
+[ep 10][it 420][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.37]
+[ep 10][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.18]
+[ep 10][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.96]
+train time: 258.40s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+9
+    [mae 0.53 mse 0.95], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_10_mae_0.53_mse_0.95] , [mae 0.53], [mse 0.95]
+==================================================
+val time: 101.46s
+[ep 11][it 30][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.00]
+[ep 11][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.03]
+[ep 11][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.54]
+[ep 11][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 5.36]
+[ep 11][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.87]
+[ep 11][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 9.65]
+[ep 11][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.07]
+[ep 11][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 13.0 pred: 13.16]
+[ep 11][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 11.0 pred: 12.39]
+[ep 11][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.09]
+[ep 11][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.67]
+[ep 11][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.19]
+[ep 11][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.45]
+[ep 11][it 420][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 7.78]
+[ep 11][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 2.70]
+[ep 11][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.65]
+train time: 258.73s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+10
+    [mae 0.68 mse 1.00], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_10_mae_0.53_mse_0.95] , [mae 0.53], [mse 0.95]
+==================================================
+val time: 100.11s
+[ep 12][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.33]
+[ep 12][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.23]
+[ep 12][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.00]
+[ep 12][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.07]
+[ep 12][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.78]
+[ep 12][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 6.23]
+[ep 12][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 10.77]
+[ep 12][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.03]
+[ep 12][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.27]
+[ep 12][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.45]
+[ep 12][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.13]
+[ep 12][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 3.60]
+[ep 12][it 390][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.39]
+[ep 12][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.28]
+[ep 12][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 0.73]
+[ep 12][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.73]
+train time: 258.88s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+11
+    [mae 0.52 mse 0.93], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_12_mae_0.52_mse_0.93] , [mae 0.52], [mse 0.93]
+==================================================
+val time: 100.87s
+[ep 13][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 1.49]
+[ep 13][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.21]
+[ep 13][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.07]
+[ep 13][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.62]
+[ep 13][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 13][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.40]
+[ep 13][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.58]
+[ep 13][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.20]
+[ep 13][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.07]
+[ep 13][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.39]
+[ep 13][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.12]
+[ep 13][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.35]
+[ep 13][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.21]
+[ep 13][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 12.01]
+[ep 13][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.00]
+[ep 13][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.06]
+train time: 259.57s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+12
+    [mae 0.49 mse 0.87], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_13_mae_0.49_mse_0.87] , [mae 0.49], [mse 0.87]
+==================================================
+val time: 103.15s
+[ep 14][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.01]
+[ep 14][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.71]
+[ep 14][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.39]
+[ep 14][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.63]
+[ep 14][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.34]
+[ep 14][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 13.0 pred: 14.24]
+[ep 14][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.89]
+[ep 14][it 240][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.04]
+[ep 14][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.60]
+[ep 14][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.39]
+[ep 14][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.99]
+[ep 14][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 6.49]
+[ep 14][it 390][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.62]
+[ep 14][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.25]
+[ep 14][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.16]
+[ep 14][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.42]
+train time: 259.45s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+13
+    [mae 0.50 mse 0.79], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_14_mae_0.50_mse_0.79] , [mae 0.50], [mse 0.79]
+==================================================
+val time: 100.86s
+[ep 15][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.64]
+[ep 15][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.97]
+[ep 15][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 15][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.16]
+[ep 15][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.27]
+[ep 15][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.39]
+[ep 15][it 210][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.69]
+[ep 15][it 240][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.37]
+[ep 15][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 7.12]
+[ep 15][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 1.09]
+[ep 15][it 330][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 2.85]
+[ep 15][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.10]
+[ep 15][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.09]
+[ep 15][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.42]
+[ep 15][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.52]
+[ep 15][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.59]
+train time: 258.53s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+14
+    [mae 0.53 mse 0.81], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_14_mae_0.50_mse_0.79] , [mae 0.50], [mse 0.79]
+==================================================
+val time: 102.14s
+[ep 16][it 30][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.07]
+[ep 16][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.04]
+[ep 16][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.28]
+[ep 16][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.31]
+[ep 16][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.74]
+[ep 16][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.86]
+[ep 16][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.43]
+[ep 16][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.26]
+[ep 16][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 9.09]
+[ep 16][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.57]
+[ep 16][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.28]
+[ep 16][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 11.0 pred: 9.44]
+[ep 16][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.00]
+[ep 16][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.12]
+[ep 16][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.12]
+[ep 16][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.94]
+train time: 258.93s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+15
+    [mae 0.51 mse 0.91], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_14_mae_0.50_mse_0.79] , [mae 0.50], [mse 0.79]
+==================================================
+val time: 100.23s
+[ep 17][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.12]
+[ep 17][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.36]
+[ep 17][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.03]
+[ep 17][it 120][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 15.0 pred: 14.96]
+[ep 17][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 7.23]
+[ep 17][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.38]
+[ep 17][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.69]
+[ep 17][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.08]
+[ep 17][it 270][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.84]
+[ep 17][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.15]
+[ep 17][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.12]
+[ep 17][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.31]
+[ep 17][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.56]
+[ep 17][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.57]
+[ep 17][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.25]
+[ep 17][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.03]
+train time: 260.01s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+16
+    [mae 0.60 mse 1.02], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_14_mae_0.50_mse_0.79] , [mae 0.50], [mse 0.79]
+==================================================
+val time: 99.92s
+[ep 18][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.70]
+[ep 18][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.73]
+[ep 18][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.64]
+[ep 18][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 1.83]
+[ep 18][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.06]
+[ep 18][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 4.12]
+[ep 18][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.26]
+[ep 18][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.72]
+[ep 18][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.64]
+[ep 18][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.40]
+[ep 18][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.77]
+[ep 18][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.79]
+[ep 18][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.56]
+[ep 18][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.04]
+[ep 18][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.04]
+[ep 18][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 9.10]
+train time: 256.81s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+17
+    [mae 0.48 mse 0.82], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_18_mae_0.48_mse_0.82] , [mae 0.48], [mse 0.82]
+==================================================
+val time: 102.38s
+[ep 19][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.77]
+[ep 19][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.26]
+[ep 19][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.10]
+[ep 19][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.33]
+[ep 19][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.78]
+[ep 19][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.00]
+[ep 19][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.73]
+[ep 19][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.51]
+[ep 19][it 270][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.38]
+[ep 19][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.38]
+[ep 19][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.07]
+[ep 19][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.32]
+[ep 19][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.00]
+[ep 19][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.33]
+[ep 19][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.12]
+[ep 19][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.21]
+train time: 260.90s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+18
+    [mae 0.49 mse 0.83], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_18_mae_0.48_mse_0.82] , [mae 0.48], [mse 0.82]
+==================================================
+val time: 102.07s
+[ep 20][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.76]
+[ep 20][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.20]
+[ep 20][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.38]
+[ep 20][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.16]
+[ep 20][it 150][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.19]
+[ep 20][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.82]
+[ep 20][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.68]
+[ep 20][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 10.04]
+[ep 20][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.08]
+[ep 20][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.18]
+[ep 20][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.57]
+[ep 20][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.03]
+[ep 20][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.00]
+[ep 20][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 11.09]
+[ep 20][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.51]
+[ep 20][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.96]
+train time: 258.01s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+19
+    [mae 0.49 mse 0.78], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 102.27s
+[ep 21][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.59]
+[ep 21][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.32]
+[ep 21][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.36]
+[ep 21][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.89]
+[ep 21][it 150][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.95]
+[ep 21][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.03]
+[ep 21][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.29]
+[ep 21][it 240][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.59]
+[ep 21][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.10]
+[ep 21][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.00]
+[ep 21][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.19]
+[ep 21][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.56]
+[ep 21][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.34]
+[ep 21][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.84]
+[ep 21][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.00]
+[ep 21][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.25]
+train time: 259.92s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+20
+    [mae 0.91 mse 1.35], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 100.96s
+[ep 22][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 13.0 pred: 13.98]
+[ep 22][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 22][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.03]
+[ep 22][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.01]
+[ep 22][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.13]
+[ep 22][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.85]
+[ep 22][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.76]
+[ep 22][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.76]
+[ep 22][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.33]
+[ep 22][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.96]
+[ep 22][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.61]
+[ep 22][it 360][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 7.87]
+[ep 22][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.03]
+[ep 22][it 420][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.43]
+[ep 22][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.47]
+[ep 22][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 5.31]
+train time: 258.04s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+21
+    [mae 0.56 mse 1.04], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 101.11s
+[ep 23][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.93]
+[ep 23][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.15]
+[ep 23][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.41]
+[ep 23][it 120][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.38]
+[ep 23][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.01]
+[ep 23][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 1.68]
+[ep 23][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.18]
+[ep 23][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.03]
+[ep 23][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.77]
+[ep 23][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.07]
+[ep 23][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.12]
+[ep 23][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.84]
+[ep 23][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.24]
+[ep 23][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.30]
+[ep 23][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.78]
+[ep 23][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.31]
+train time: 259.75s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+22
+    [mae 0.59 mse 1.06], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 102.77s
+[ep 24][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.09]
+[ep 24][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.20]
+[ep 24][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.19]
+[ep 24][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.14]
+[ep 24][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.00]
+[ep 24][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.03]
+[ep 24][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.89]
+[ep 24][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.55]
+[ep 24][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 9.31]
+[ep 24][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.26]
+[ep 24][it 330][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 1.01]
+[ep 24][it 360][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.92]
+[ep 24][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 3.63]
+[ep 24][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.18]
+[ep 24][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.28]
+[ep 24][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.31]
+train time: 260.81s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+23
+    [mae 0.50 mse 0.91], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 100.83s
+[ep 25][it 30][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.80]
+[ep 25][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.12]
+[ep 25][it 90][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.86]
+[ep 25][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.36]
+[ep 25][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.02]
+[ep 25][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.14]
+[ep 25][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.00]
+[ep 25][it 240][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.09]
+[ep 25][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.14]
+[ep 25][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.01]
+[ep 25][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.21]
+[ep 25][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.43]
+[ep 25][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 25][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.42]
+[ep 25][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.83]
+[ep 25][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.15]
+train time: 261.51s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+24
+    [mae 0.57 mse 0.84], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 102.55s
+[ep 26][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.25]
+[ep 26][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.44]
+[ep 26][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.59]
+[ep 26][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 14.0 pred: 12.92]
+[ep 26][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.37]
+[ep 26][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.94]
+[ep 26][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.10]
+[ep 26][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.88]
+[ep 26][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.43]
+[ep 26][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.56]
+[ep 26][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.62]
+[ep 26][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.85]
+[ep 26][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.04]
+[ep 26][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.71]
+[ep 26][it 450][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.21]
+[ep 26][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.29]
+train time: 260.74s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+25
+    [mae 0.65 mse 0.93], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_20_mae_0.49_mse_0.78] , [mae 0.49], [mse 0.78]
+==================================================
+val time: 100.98s
+[ep 27][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.70]
+[ep 27][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.25]
+[ep 27][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 14.0 pred: 18.36]
+[ep 27][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.26]
+[ep 27][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.01]
+[ep 27][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.47]
+[ep 27][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.02]
+[ep 27][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.92]
+[ep 27][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.34]
+[ep 27][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.98]
+[ep 27][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.62]
+[ep 27][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 2.05]
+[ep 27][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.25]
+[ep 27][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.21]
+[ep 27][it 450][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.97]
+[ep 27][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.12]
+train time: 263.05s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+26
+    [mae 0.45 mse 0.78], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_27_mae_0.45_mse_0.78] , [mae 0.45], [mse 0.78]
+==================================================
+val time: 100.86s
+[ep 28][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.70]
+[ep 28][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.66]
+[ep 28][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 6.13]
+[ep 28][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 17.0 pred: 15.20]
+[ep 28][it 150][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 16.0 pred: 16.05]
+[ep 28][it 180][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 8.96]
+[ep 28][it 210][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 3.02]
+[ep 28][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.09]
+[ep 28][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.03]
+[ep 28][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 6.72]
+[ep 28][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.98]
+[ep 28][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.67]
+[ep 28][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.22]
+[ep 28][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.76]
+[ep 28][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.04]
+[ep 28][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.11]
+train time: 260.05s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+27
+    [mae 0.50 mse 0.77], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_28_mae_0.50_mse_0.77] , [mae 0.50], [mse 0.77]
+==================================================
+val time: 102.85s
+[ep 29][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.28]
+[ep 29][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.82]
+[ep 29][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.02]
+[ep 29][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.56]
+[ep 29][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.19]
+[ep 29][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.20]
+[ep 29][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 4.02]
+[ep 29][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.30]
+[ep 29][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.99]
+[ep 29][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.56]
+[ep 29][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.84]
+[ep 29][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.32]
+[ep 29][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.05]
+[ep 29][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.93]
+[ep 29][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.95]
+[ep 29][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.10]
+train time: 259.89s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+28
+    [mae 0.75 mse 1.12], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_28_mae_0.50_mse_0.77] , [mae 0.50], [mse 0.77]
+==================================================
+val time: 101.42s
+[ep 30][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.57]
+[ep 30][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.12]
+[ep 30][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.88]
+[ep 30][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.23]
+[ep 30][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.18]
+[ep 30][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.15]
+[ep 30][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 14.0 pred: 13.03]
+[ep 30][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.95]
+[ep 30][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.00]
+[ep 30][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.85]
+[ep 30][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.91]
+[ep 30][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 17.0 pred: 15.77]
+[ep 30][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 10.80]
+[ep 30][it 420][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.97]
+[ep 30][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.32]
+[ep 30][it 480][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.93]
+train time: 258.53s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+29
+    [mae 0.82 mse 1.13], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_28_mae_0.50_mse_0.77] , [mae 0.50], [mse 0.77]
+==================================================
+val time: 102.19s
+[ep 31][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.46]
+[ep 31][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.23]
+[ep 31][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 10.61]
+[ep 31][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.01]
+[ep 31][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 31][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 9.07]
+[ep 31][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.31]
+[ep 31][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.67]
+[ep 31][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.26]
+[ep 31][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 31][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.79]
+[ep 31][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 7.68]
+[ep 31][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.38]
+[ep 31][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.47]
+[ep 31][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.36]
+[ep 31][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.20]
+train time: 260.79s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+30
+    [mae 0.60 mse 1.06], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_28_mae_0.50_mse_0.77] , [mae 0.50], [mse 0.77]
+==================================================
+val time: 100.70s
+[ep 32][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.35]
+[ep 32][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.59]
+[ep 32][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 3.04]
+[ep 32][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.62]
+[ep 32][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.91]
+[ep 32][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 32][it 210][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 17.0 pred: 15.59]
+[ep 32][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 1.57]
+[ep 32][it 270][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.23]
+[ep 32][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.14]
+[ep 32][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 11.0 pred: 12.28]
+[ep 32][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.38]
+[ep 32][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.67]
+[ep 32][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.01]
+[ep 32][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 2.91]
+[ep 32][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.09]
+train time: 280.37s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+31
+    [mae 0.51 mse 0.89], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_28_mae_0.50_mse_0.77] , [mae 0.50], [mse 0.77]
+==================================================
+val time: 104.43s
+[ep 33][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.16]
+[ep 33][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.57]
+[ep 33][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.91]
+[ep 33][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 13.01]
+[ep 33][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.30]
+[ep 33][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.85]
+[ep 33][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.89]
+[ep 33][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.53]
+[ep 33][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.47]
+[ep 33][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 16.0 pred: 13.26]
+[ep 33][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.37]
+[ep 33][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.45]
+[ep 33][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.09]
+[ep 33][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.02]
+[ep 33][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.21]
+[ep 33][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.38]
+train time: 262.00s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+32
+    [mae 0.54 mse 0.81], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_28_mae_0.50_mse_0.77] , [mae 0.50], [mse 0.77]
+==================================================
+val time: 102.55s
+[ep 34][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 8.24]
+[ep 34][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.27]
+[ep 34][it 90][loss 0.0006][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.50]
+[ep 34][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.81]
+[ep 34][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.57]
+[ep 34][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.84]
+[ep 34][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.80]
+[ep 34][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.06]
+[ep 34][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.97]
+[ep 34][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.66]
+[ep 34][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.24]
+[ep 34][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.35]
+[ep 34][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.07]
+[ep 34][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.52]
+[ep 34][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.30]
+[ep 34][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.27]
+train time: 261.48s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+33
+    [mae 0.45 mse 0.76], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_34_mae_0.45_mse_0.76] , [mae 0.45], [mse 0.76]
+==================================================
+val time: 101.28s
+[ep 35][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.58]
+[ep 35][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 10.62]
+[ep 35][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.16]
+[ep 35][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.05]
+[ep 35][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.01]
+[ep 35][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.32]
+[ep 35][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.80]
+[ep 35][it 240][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.80]
+[ep 35][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.27]
+[ep 35][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.58]
+[ep 35][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.14]
+[ep 35][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.08]
+[ep 35][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.00]
+[ep 35][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 8.81]
+[ep 35][it 450][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 7.80]
+[ep 35][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.33]
+train time: 263.53s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+34
+    [mae 0.55 mse 0.99], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_34_mae_0.45_mse_0.76] , [mae 0.45], [mse 0.76]
+==================================================
+val time: 100.63s
+[ep 36][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.00]
+[ep 36][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.48]
+[ep 36][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.39]
+[ep 36][it 120][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.07]
+[ep 36][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.01]
+[ep 36][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.90]
+[ep 36][it 210][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.69]
+[ep 36][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.59]
+[ep 36][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.01]
+[ep 36][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.04]
+[ep 36][it 330][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 10.04]
+[ep 36][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.56]
+[ep 36][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.06]
+[ep 36][it 420][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.96]
+[ep 36][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.19]
+[ep 36][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.28]
+train time: 261.07s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+35
+    [mae 0.48 mse 0.77], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_34_mae_0.45_mse_0.76] , [mae 0.45], [mse 0.76]
+==================================================
+val time: 100.31s
+[ep 37][it 30][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 7.97]
+[ep 37][it 60][loss 0.0000][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.67]
+[ep 37][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 5.25]
+[ep 37][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.84]
+[ep 37][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.26]
+[ep 37][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.17]
+[ep 37][it 210][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.51]
+[ep 37][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.25]
+[ep 37][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.17]
+[ep 37][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 13.0 pred: 13.56]
+[ep 37][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.15]
+[ep 37][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 12.93]
+[ep 37][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.48]
+[ep 37][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 8.74]
+[ep 37][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.15]
+[ep 37][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 17.0 pred: 15.43]
+train time: 258.40s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+36
+    [mae 0.46 mse 0.76], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_34_mae_0.45_mse_0.76] , [mae 0.45], [mse 0.76]
+==================================================
+val time: 102.13s
+[ep 38][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.13]
+[ep 38][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.31]
+[ep 38][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.47]
+[ep 38][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 38][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.18]
+[ep 38][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.01]
+[ep 38][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 10.53]
+[ep 38][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.15]
+[ep 38][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.02]
+[ep 38][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.47]
+[ep 38][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.02]
+[ep 38][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.96]
+[ep 38][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.42]
+[ep 38][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 9.05]
+[ep 38][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.19]
+[ep 38][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 16.0 pred: 14.08]
+train time: 259.54s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+37
+    [mae 0.63 mse 0.94], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_34_mae_0.45_mse_0.76] , [mae 0.45], [mse 0.76]
+==================================================
+val time: 102.86s
+[ep 39][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.21]
+[ep 39][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.01]
+[ep 39][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.70]
+[ep 39][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.10]
+[ep 39][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.20]
+[ep 39][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.10]
+[ep 39][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.64]
+[ep 39][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.03]
+[ep 39][it 270][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.86]
+[ep 39][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.41]
+[ep 39][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.03]
+[ep 39][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.93]
+[ep 39][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.46]
+[ep 39][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.32]
+[ep 39][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.28]
+[ep 39][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.49]
+train time: 259.76s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+38
+    [mae 0.47 mse 0.76], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_39_mae_0.47_mse_0.76] , [mae 0.47], [mse 0.76]
+==================================================
+val time: 102.22s
+[ep 40][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.91]
+[ep 40][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.46]
+[ep 40][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.54]
+[ep 40][it 120][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.01]
+[ep 40][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.78]
+[ep 40][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.79]
+[ep 40][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.43]
+[ep 40][it 240][loss 0.0006][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.93]
+[ep 40][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.46]
+[ep 40][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.32]
+[ep 40][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 20.0 pred: 16.18]
+[ep 40][it 360][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.98]
+[ep 40][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.65]
+[ep 40][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.14]
+[ep 40][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.18]
+[ep 40][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.30]
+train time: 263.93s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+39
+    [mae 0.68 mse 1.03], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_39_mae_0.47_mse_0.76] , [mae 0.47], [mse 0.76]
+==================================================
+val time: 102.67s
+[ep 41][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.9 pred: 6.18]
+[ep 41][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.03]
+[ep 41][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 3.70]
+[ep 41][it 120][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.04]
+[ep 41][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.05]
+[ep 41][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.10]
+[ep 41][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.96]
+[ep 41][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.35]
+[ep 41][it 270][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.06]
+[ep 41][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.05]
+[ep 41][it 330][loss 0.0000][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.36]
+[ep 41][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.31]
+[ep 41][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.92]
+[ep 41][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.53]
+[ep 41][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.34]
+[ep 41][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.27]
+train time: 262.30s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+40
+    [mae 0.48 mse 0.75], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_41_mae_0.48_mse_0.75] , [mae 0.48], [mse 0.75]
+==================================================
+val time: 101.05s
+[ep 42][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 6.24]
+[ep 42][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 2.28]
+[ep 42][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.61]
+[ep 42][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.66]
+[ep 42][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.27]
+[ep 42][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 3.15]
+[ep 42][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.34]
+[ep 42][it 240][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.07]
+[ep 42][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.15]
+[ep 42][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.78]
+[ep 42][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.68]
+[ep 42][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.91]
+[ep 42][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.17]
+[ep 42][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.18]
+[ep 42][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.32]
+[ep 42][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.76]
+train time: 258.56s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+41
+    [mae 0.55 mse 0.93], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_41_mae_0.48_mse_0.75] , [mae 0.48], [mse 0.75]
+==================================================
+val time: 101.47s
+[ep 43][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.26]
+[ep 43][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.02]
+[ep 43][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.07]
+[ep 43][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.02]
+[ep 43][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.86]
+[ep 43][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.08]
+[ep 43][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.60]
+[ep 43][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.37]
+[ep 43][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.60]
+[ep 43][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.14]
+[ep 43][it 330][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.73]
+[ep 43][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.63]
+[ep 43][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.33]
+[ep 43][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.23]
+[ep 43][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.01]
+[ep 43][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.35]
+train time: 256.41s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+42
+    [mae 0.49 mse 0.77], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_41_mae_0.48_mse_0.75] , [mae 0.48], [mse 0.75]
+==================================================
+val time: 100.44s
+[ep 44][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.43]
+[ep 44][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 4.69]
+[ep 44][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.56]
+[ep 44][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.03]
+[ep 44][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 17.0 pred: 16.84]
+[ep 44][it 180][loss 0.0005][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 6.49]
+[ep 44][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.08]
+[ep 44][it 240][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.17]
+[ep 44][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.98]
+[ep 44][it 300][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.06]
+[ep 44][it 330][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 1.87]
+[ep 44][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 3.71]
+[ep 44][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.09]
+[ep 44][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 1.93]
+[ep 44][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.51]
+[ep 44][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.98]
+train time: 257.34s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+43
+    [mae 0.47 mse 0.76], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_44_mae_0.47_mse_0.76] , [mae 0.47], [mse 0.76]
+==================================================
+val time: 101.99s
+[ep 45][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.12]
+[ep 45][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.37]
+[ep 45][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.51]
+[ep 45][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.19]
+[ep 45][it 150][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.81]
+[ep 45][it 180][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.88]
+[ep 45][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.96]
+[ep 45][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.78]
+[ep 45][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.46]
+[ep 45][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 0.99]
+[ep 45][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.57]
+[ep 45][it 360][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 12.0 pred: 9.61]
+[ep 45][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.51]
+[ep 45][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.09]
+[ep 45][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.11]
+[ep 45][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 9.75]
+train time: 258.00s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+44
+    [mae 0.45 mse 0.78], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_45_mae_0.45_mse_0.78] , [mae 0.45], [mse 0.78]
+==================================================
+val time: 101.69s
+[ep 46][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.72]
+[ep 46][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.18]
+[ep 46][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 7.70]
+[ep 46][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.98]
+[ep 46][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.58]
+[ep 46][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.38]
+[ep 46][it 210][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.79]
+[ep 46][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.72]
+[ep 46][it 270][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.00]
+[ep 46][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.85]
+[ep 46][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.49]
+[ep 46][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.28]
+[ep 46][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 5.83]
+[ep 46][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.62]
+[ep 46][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.95]
+[ep 46][it 480][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.24]
+train time: 258.81s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+45
+    [mae 0.46 mse 0.74], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_46_mae_0.46_mse_0.74] , [mae 0.46], [mse 0.74]
+==================================================
+val time: 100.59s
+[ep 47][it 30][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 4.59]
+[ep 47][it 60][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 2.82]
+[ep 47][it 90][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.46]
+[ep 47][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.06]
+[ep 47][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.17]
+[ep 47][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.35]
+[ep 47][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.89]
+[ep 47][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.14]
+[ep 47][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.9 pred: 0.01]
+[ep 47][it 300][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 5.55]
+[ep 47][it 330][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 9.0 pred: 8.59]
+[ep 47][it 360][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.73]
+[ep 47][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.96]
+[ep 47][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.78]
+[ep 47][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.04]
+[ep 47][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.85]
+train time: 256.70s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+46
+    [mae 0.54 mse 1.00], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_46_mae_0.46_mse_0.74] , [mae 0.46], [mse 0.74]
+==================================================
+val time: 101.55s
+[ep 48][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 3.15]
+[ep 48][it 60][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 13.0 pred: 11.39]
+[ep 48][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.05]
+[ep 48][it 120][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.25]
+[ep 48][it 150][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.80]
+[ep 48][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.84]
+[ep 48][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 8.79]
+[ep 48][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.34]
+[ep 48][it 270][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 7.0 pred: 7.33]
+[ep 48][it 300][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 6.0 pred: 6.42]
+[ep 48][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.41]
+[ep 48][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.80]
+[ep 48][it 390][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.37]
+[ep 48][it 420][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.63]
+[ep 48][it 450][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 11.0 pred: 11.13]
+[ep 48][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.00]
+train time: 258.29s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+47
+    [mae 0.48 mse 0.76], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_46_mae_0.46_mse_0.74] , [mae 0.46], [mse 0.74]
+==================================================
+val time: 102.47s
+[ep 49][it 30][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.38]
+[ep 49][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.17]
+[ep 49][it 90][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 0.73]
+[ep 49][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.33]
+[ep 49][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.23]
+[ep 49][it 180][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 8.0 pred: 7.67]
+[ep 49][it 210][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 2.25]
+[ep 49][it 240][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.44]
+[ep 49][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 2.0 pred: 1.99]
+[ep 49][it 300][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.15]
+[ep 49][it 330][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.14]
+[ep 49][it 360][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 2.92]
+[ep 49][it 390][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.03]
+[ep 49][it 420][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.15]
+[ep 49][it 450][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 5.44]
+[ep 49][it 480][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.82]
+train time: 259.03s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+48
+    [mae 0.49 mse 0.87], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_46_mae_0.46_mse_0.74] , [mae 0.46], [mse 0.74]
+==================================================
+val time: 99.29s
+[ep 50][it 30][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.16]
+[ep 50][it 60][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 3.36]
+[ep 50][it 90][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 5.0 pred: 4.50]
+[ep 50][it 120][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.55]
+[ep 50][it 150][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.60]
+[ep 50][it 180][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.05]
+[ep 50][it 210][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 17.0 pred: 16.46]
+[ep 50][it 240][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 4.36]
+[ep 50][it 270][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.17]
+[ep 50][it 300][loss 0.0004][lr 0.000010][0.49s]
+        [cnt: gt: 4.0 pred: 3.15]
+[ep 50][it 330][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 10.0 pred: 10.45]
+[ep 50][it 360][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.00]
+[ep 50][it 390][loss 0.0003][lr 0.000010][0.49s]
+        [cnt: gt: 3.0 pred: 2.95]
+[ep 50][it 420][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.23]
+[ep 50][it 450][loss 0.0001][lr 0.000010][0.49s]
+        [cnt: gt: 1.0 pred: 1.26]
+[ep 50][it 480][loss 0.0002][lr 0.000010][0.49s]
+        [cnt: gt: 0.0 pred: 0.06]
+train time: 257.15s
+====================
+==================================================
+log_txt: ./exp/Res50_NTU_50//10-22_13-48_NTU_Res50_1e-05_hall/10-22_13-48_NTU_Res50_1e-05_hall.txt
+    --------------------
+49
+    [mae 0.77 mse 1.11], [val loss 0.0002]
+    --------------------
+[best] [model: all_ep_46_mae_0.46_mse_0.74] , [mae 0.46], [mse 0.74]
+==================================================
+val time: 99.57s
