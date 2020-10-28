@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 import torch.nn.functional as F
 
 
@@ -16,6 +17,7 @@ class FCDiscriminator(nn.Module):
 		self.leaky_relu = nn.LeakyReLU(negative_slope=0.2, inplace=True)
 		#self.up_sample = nn.Upsample(scale_factor=32, mode='bilinear')
 		#self.sigmoid = nn.Sigmoid()
+		self.loss = nn.CrossEntropyLoss()
 
 
 	def forward(self, x):
@@ -29,6 +31,15 @@ class FCDiscriminator(nn.Module):
 		x = self.leaky_relu(x)
 		x = self.classifier(x)
 		#x = self.up_sample(x)
-		#x = self.sigmoid(x) 
+		#x = self.sigmoid(x)
 
 		return x
+
+	def cal_loss(self, x, gt, flag=1):
+		if flag != 1:
+			return 0
+		else:
+			x = self.forward(x)
+			fill = torch.ones if gt else torch.zeros
+			return self.loss(x,fill(x.shape))
+
