@@ -84,5 +84,5 @@ elif net in ['CMTL']:
 pwd = os.path.split(os.path.realpath(__file__))[0]
 print(cfg_data)
 cc_trainer = Trainer(loading_data,cfg_data,pwd,cfg)
-# print('ready to forward')
-#cc_trainer.forward()
+print('ready to forward')
+cc_trainer.forward()
