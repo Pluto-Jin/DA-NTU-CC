@@ -185,8 +185,8 @@ class Trainer():
         self.D1.apply(weights_init())
         self.D2.apply(weights_init())
 
-        self.d1_opt = optim.Adam(self.D1.parameters(), lr=cfg.LR_D, betas=(0.9, 0.99))
-        self.d2_opt = optim.Adam(self.D2.parameters(), lr=cfg.LR_D, betas=(0.9, 0.99))
+        self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.LR_DECAY, betas=(0.9, 0.99))
+        self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.LR_DECAY, betas=(0.9, 0.99))
 
         '''loss and lambdas here'''
         self.lambda_adv1 = cfg.LAMBDA_ADV1
