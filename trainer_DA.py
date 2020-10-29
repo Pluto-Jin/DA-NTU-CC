@@ -172,8 +172,16 @@ class Trainer():
         self.i_tb = 0
 
         '''discriminator'''
-        self.D1 = FCDiscriminator(1024).cuda()
-        self.D2 = FCDiscriminator(128).cuda()
+        if cfg.GAN == 'Vanilla':
+            bce_loss = torch.nn.BCEWithLogitsLoss()
+        elif cfg.GAN == 'LS':
+            bce_loss = torch.nn.MSELoss()
+
+        if cfg.NET == 'Res50':
+            channel1, channel2 = 1024, 128
+
+        self.D1 = FCDiscriminator(channel1, bce_loss).cuda()
+        self.D2 = FCDiscriminator(channel2, bce_loss).cuda()
         self.D1.apply(weights_init())
         self.D2.apply(weights_init())
 
@@ -181,7 +189,8 @@ class Trainer():
         self.d2_opt = optim.Adam(self.D2.parameters(), lr=cfg.LR_D, betas=(0.9, 0.99))
 
         '''loss and lambdas here'''
-
+        self.lambda_adv1 = cfg.LAMBDA_ADV1
+        self.lambda_adv2 = cfg.LAMBDA_ADV2
 
 
         if cfg.PRE_GCC:
@@ -196,6 +205,7 @@ class Trainer():
 
         '''modify dataloader'''
         self.train_loader, self.target_loader, self.restore_transform = dataloader()
+        print(len(self.train_loader.dataset),len(self.target_loader.dataset))
         self.train_loader_iter = enumerate(self.train_loader)
         self.target_loader_iter = enumerate(self.target_loader)
 
@@ -211,7 +221,7 @@ class Trainer():
             self.exp_path = latest_state['exp_path']
             self.exp_name = latest_state['exp_name']
         self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.train_loader,
-                                           self.val_loader, resume=cfg.RESUME, cfg=cfg)
+                                           self.target_loader, resume=cfg.RESUME, cfg=cfg)
 
     def forward(self):
         #         print('forward!!')
@@ -251,7 +261,8 @@ class Trainer():
     def train(self):  # training for all datasets
         self.net.train()
 
-        for i in range(self.cfg.MAX_EPOCH//self.cfg.BATCH_SIZE):
+        print()
+        for i in range(self.cfg.MAX_EPOCH//self.cfg_data.TRAIN_BATCH_SIZE):
         #for i, data in enumerate(self.train_loader, 0):
         #for i in range(self.cfg.BATCH_SIZE):
             self.timer['iter time'].tic()
@@ -273,13 +284,17 @@ class Trainer():
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
                 self.writer.add_scalar('train_loss', loss.item(), self.i_tb)
+                self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
+                self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
+                self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
                 self.timer['iter time'].toc(average=False)
 
-                print('[ep %d][it %d][loss %.4f][lr %.6f][%.2fs]' % \
-                      (self.epoch + 1, i + 1, loss.item(), self.optimizer.param_groups[0]['lr'],
+                print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.6f][%.2fs]' % \
+                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item(), loss_d1.item(), loss_d2.item(), self.optimizer.param_groups[0]['lr'],
                        self.timer['iter time'].diff))
-                print('        [cnt: gt: %.1f pred: %.2f]' % (
-                gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA))
+                print('        [cnt: gt: %.1f pred: %.2f][tar: gt: %.1f pred: %.2f]' % (
+                gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA,
+                gt_tar[0].sum().data / self.cfg_data.LOG_PARA, pred_tar[0].sum().data / self.cfg_data.LOG_PARA))
 
         self.writer.add_scalar('lr', self.optimizer.param_groups[0]['lr'], self.epoch + 1)
 
@@ -287,17 +302,17 @@ class Trainer():
         self.optimizer.zero_grad()
 
         #source
-        pred1,pred2,pred = self.net(img)
+        pred1, pred2, pred = self.net(img)
         loss = self.net.loss(pred,gt_img)
         loss.backward()
 
         #target
-        pred_tar1,pred_tar2,pred_tar = self.net(tar)
+        pred_tar1, pred_tar2, pred_tar = self.net(tar)
 
         loss_adv1 = self.D1.cal_loss(pred_tar1,0)
         loss_adv2 = self.D2.cal_loss(pred_tar2,0,self.cfg.TWO_DIS)
 
-        loss_adv = self.cfg.lambda_adv1*loss_adv1 + self.cfg.lambda_adv2*loss_adv2
+        loss_adv = self.lambda_adv1*loss_adv1 + self.lambda_adv2*loss_adv2
         loss_adv.backward()
 
         val_loss = self.net.loss(pred_tar,gt_tar)
@@ -494,14 +509,14 @@ class Trainer():
         maes = AverageMeter()
         mses = AverageMeter()
 
-        for vi, data in enumerate(self.val_loader, 0):
+        for vi, data in enumerate(self.target_loader, 0):
             img, gt_map = data
 
             with torch.no_grad():
                 img = Variable(img).cuda()
                 gt_map = Variable(gt_map).cuda()
 
-                pred_map = self.net.forward(img, gt_map)
+                _, _, pred_map = self.net.forward(img, gt_map)
 
                 pred_map = pred_map.data.cpu().numpy()
                 gt_map = gt_map.data.cpu().numpy()
@@ -529,8 +544,7 @@ class Trainer():
         self.writer.add_scalar('mse', mse, self.epoch + 1)
 
         self.train_record = update_model(self.net, self.optimizer, self.scheduler, self.epoch, self.i_tb, self.exp_path,
-                                         self.exp_name, \
-                                         [mae, mse, loss], self.train_record, False, self.log_txt)
+                                         self.exp_name, [mae, mse, loss], self.train_record, False, self.log_txt)
 
         print_NTU_summary(self.log_txt, self.epoch, [mae, mse, loss], self.train_record)
 
@@ -556,7 +570,7 @@ if __name__ == '__main__':
     if net in ['MCNN', 'AlexNet', 'VGG', 'VGG_DECODER', 'Res50', 'Res101', 'CSRNet', 'Res101_SFCN']:
         from trainer import Trainer
     elif net in ['SANet']:
-        from trainer_for_M2TCC import Trainer  # double losses but signle output
+        from trainer_for_M2TCC import Trainer  # double losses but single output
     elif net in ['CMTL']:
         from trainer_for_CMTL import Trainer  # double losses and double outputs
     elif net in ['PCCNet']:

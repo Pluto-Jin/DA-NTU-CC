@@ -15,8 +15,8 @@ class Res50(nn.Module):
     def __init__(self,  pretrained=True):
         super(Res50, self).__init__()
 
-        self.de_pred = nn.Sequential(Conv2d(1024, 128, 1, same_padding=True, NL='relu'),
-                                     Conv2d(128, 1, 1, same_padding=True, NL='relu'))
+        self.de_pred1 = Conv2d(1024, 128, 1, same_padding=True, NL='relu')
+        self.de_pred2 = Conv2d(128, 1, 1, same_padding=True, NL='relu')
 
         initialize_weights(self.modules())
 
@@ -39,11 +39,15 @@ class Res50(nn.Module):
         x = self.frontend(x)
 
         x = self.own_reslayer_3(x)
+        layer1 = x
 
-        x = self.de_pred(x)
+        x = self.de_pred1(x)
+        layer2 = x
+
+        x = self.de_pred2(x)
 
         x = F.upsample(x,scale_factor=8)
-        return x
+        return layer1, layer2, x
 
     def _initialize_weights(self):
         for m in self.modules():

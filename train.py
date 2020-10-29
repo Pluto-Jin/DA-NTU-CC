@@ -71,18 +71,18 @@ elif data_mode is 'NTU':
 #------------Prepare Trainer------------
 net = cfg.NET
 
-if net in ['MCNN','MCNN_BN','AlexNet', 'VGG', 'VGG_DECODER', 'VGG_DECODER_BN','Res50','Res101','CSRNet','Res101_SFCN','Res101_SFCN_BN',]:
+if cfg.DA:
+    from trainer_DA import Trainer
+elif net in ['MCNN','MCNN_BN','AlexNet', 'VGG', 'VGG_DECODER', 'VGG_DECODER_BN','Res50','Res101','CSRNet','Res101_SFCN','Res101_SFCN_BN',]:
     from trainer import Trainer
 elif net in ['SANet','SANet_BN']: 
     from trainer_for_M2TCC import Trainer # double losses but signle output
 elif net in ['CMTL']: 
     from trainer_for_CMTL import Trainer # double losses and double outputs
-elif net in ['PCCNet']:
-    from trainer_for_M3T3OCC import Trainer
 
 #------------Start Training------------
 pwd = os.path.split(os.path.realpath(__file__))[0]
 print(cfg_data)
 cc_trainer = Trainer(loading_data,cfg_data,pwd,cfg)
 # print('ready to forward')
-cc_trainer.forward()
+#cc_trainer.forward()

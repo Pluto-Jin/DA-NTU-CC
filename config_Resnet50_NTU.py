@@ -23,8 +23,10 @@ if __C.DATASET == 'NTU':# only for GCC
 	__C.VAL_MODE = cfg_data.VAL_MODE
 
 __C.NET = 'Res50' # net selection: MCNN, AlexNet, VGG, VGG_DECODER, Res50, CSRNet, SANet
+__C.DA = True #domain adaptation flag
+__C.GAN = 'Vanilla' #Vanilla, LS
 
-__C.PRE_GCC = True # use the pretrained model on GCC dataset
+__C.PRE_GCC = False # use the pretrained model on GCC dataset
 __C.PRE_GCC_MODEL = './exp/best_state.pth' # path to model
 
 __C.RESUME = False # contine training
