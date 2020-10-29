@@ -205,9 +205,10 @@ class Trainer():
 
         '''modify dataloader'''
         self.train_loader, self.target_loader, self.restore_transform = dataloader()
-        print(len(self.train_loader.dataset),len(self.target_loader.dataset))
+        #print(len(self.train_loader.dataset),len(self.target_loader.dataset))
         self.train_loader_iter = enumerate(self.train_loader)
         self.target_loader_iter = enumerate(self.target_loader)
+        print(sum(1 for _ in self.train_loader_iter),sum(1 for _ in self.target_loader))
 
         if cfg.RESUME:
             print('===================Loaded model to resume================')
@@ -220,8 +221,7 @@ class Trainer():
             self.train_record = latest_state['train_record']
             self.exp_path = latest_state['exp_path']
             self.exp_name = latest_state['exp_name']
-        self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.train_loader,
-                                           self.target_loader, resume=cfg.RESUME, cfg=cfg)
+        #self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.train_loader, self.target_loader, resume=cfg.RESUME, cfg=cfg)
 
     def forward(self):
         #         print('forward!!')
