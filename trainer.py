@@ -169,8 +169,6 @@ class Trainer():
           
                         
         self.train_loader, self.val_loader, self.restore_transform = dataloader()
-        tmp = enumerate(self.val_loader)
-        print(tmp)
 
         if cfg.RESUME:
             print('===================Loaded model to resume================')

@@ -205,7 +205,7 @@ class Trainer():
 
         '''modify dataloader'''
         self.train_loader, self.target_loader, self.restore_transform = dataloader()
-        #print(len(self.train_loader.dataset),len(self.target_loader.dataset))
+        self.epoch_len = len(self.train_loader.dataset)
         self.train_loader_iter = enumerate(self.train_loader)
         self.target_loader_iter = enumerate(self.target_loader)
 
@@ -220,7 +220,7 @@ class Trainer():
             self.train_record = latest_state['train_record']
             self.exp_path = latest_state['exp_path']
             self.exp_name = latest_state['exp_name']
-        #self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.train_loader, self.target_loader, resume=cfg.RESUME, cfg=cfg)
+        self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.train_loader, self.target_loader, resume=cfg.RESUME, cfg=cfg)
 
     def forward(self):
         #         print('forward!!')
@@ -260,10 +260,7 @@ class Trainer():
     def train(self):  # training for all datasets
         self.net.train()
 
-        print()
-        for i in range(self.cfg.MAX_EPOCH//self.cfg_data.TRAIN_BATCH_SIZE):
-        #for i, data in enumerate(self.train_loader, 0):
-        #for i in range(self.cfg.BATCH_SIZE):
+        for i in range(self.epoch_len//self.cfg_data.TRAIN_BATCH_SIZE+1):
             self.timer['iter time'].tic()
             img, gt_img = self.train_loader_iter.__next__()
             tar, gt_tar = self.target_loader_iter.__next__()
@@ -275,10 +272,14 @@ class Trainer():
             gt_tar = Variable(gt_tar).cuda()
 
             #gen loss
-            loss, loss_adv, loss_adv1, loss_adv2, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2, val_loss = self.gen_update(img,tar,gt_img,gt_tar,i)
+            loss, loss_adv, loss_adv1, loss_adv2, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar,i)
 
             #dis loss
             loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
+
+            self.optimizer.step()
+            self.d1_opt.step()
+            self.d2_opt.step()
 
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
@@ -300,6 +301,11 @@ class Trainer():
     def gen_update(self,img,tar,gt_img,gt_tar,i_iter):
         self.optimizer.zero_grad()
 
+        for param in self.D1.parameters():
+            param.requires_grad = False
+        for param in self.D2.parameters():
+            param.requires_grad = False
+
         #source
         pred1, pred2, pred = self.net(img)
         loss = self.net.loss(pred,gt_img)
@@ -314,15 +320,23 @@ class Trainer():
         loss_adv = self.cfg.LAMBDA_ADV1*loss_adv1 + self.cfg.LAMBDA_ADV2*loss_adv2
         loss_adv.backward()
 
-        val_loss = self.net.loss(pred_tar,gt_tar)
-
-        return loss,loss_adv,loss_adv1,loss_adv2,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2,val_loss
+        return loss,loss_adv,loss_adv1,loss_adv2,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2
 
     def dis_update(self,pred1,pred2,pred_tar1,pred_tar2):
+
+        for param in self.D1.parameters():
+            param.requires_grad = True
+        for param in self.D2.parameters():
+            param.requires_grad = True
+
+
         self.d1_opt.zero_grad()
         self.d2_opt.zero_grad()
 
         #source
+        pred1 = pred1.detach()
+        pred2 = pred2.detach()
+
         loss_d1 = self.D1.cal_loss(pred1,0)
         loss_d2 = self.D2.cal_loss(pred2,0,self.cfg.TWO_DIS)
         loss_d1.backward()
@@ -332,6 +346,9 @@ class Trainer():
         loss_D2 = loss_d2
 
         #target
+        pred_tar1 = pred_tar1.detach()
+        pred_tar2 = pred_tar2.detach()
+
         loss_d1 = self.D1.cal_loss(pred_tar1,1)
         loss_d2 = self.D2.cal_loss(pred_tar2,1,self.cfg.TWO_DIS)
         loss_d1.backward()
