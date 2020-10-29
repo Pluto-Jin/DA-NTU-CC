@@ -208,7 +208,6 @@ class Trainer():
         #print(len(self.train_loader.dataset),len(self.target_loader.dataset))
         self.train_loader_iter = enumerate(self.train_loader)
         self.target_loader_iter = enumerate(self.target_loader)
-        print(sum(1 for _ in self.train_loader_iter),sum(1 for _ in self.target_loader))
 
         if cfg.RESUME:
             print('===================Loaded model to resume================')

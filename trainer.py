@@ -169,6 +169,8 @@ class Trainer():
           
                         
         self.train_loader, self.val_loader, self.restore_transform = dataloader()
+        tmp = enumerate(self.val_loader)
+        print(tmp)
 
         if cfg.RESUME:
             print('===================Loaded model to resume================')
@@ -181,7 +183,7 @@ class Trainer():
             self.train_record = latest_state['train_record']
             self.exp_path = latest_state['exp_path']
             self.exp_name = latest_state['exp_name']
-        self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp',self.train_loader, self.val_loader, resume=cfg.RESUME,cfg=cfg)
+        #self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp',self.train_loader, self.val_loader, resume=cfg.RESUME,cfg=cfg)
 
 
     def forward(self):

@@ -25,7 +25,7 @@ if __C.DATASET == 'NTU':# only for GCC
 __C.NET = 'Res50' # net selection: MCNN, AlexNet, VGG, VGG_DECODER, Res50, CSRNet, SANet
 
 #DA settings
-__C.DA = True #domain adaptation flag
+__C.DA = False #domain adaptation flag
 __C.GAN = 'Vanilla' #Vanilla, LS
 __C.LAMBDA_ADV1 = 0.0002
 __C.LAMBDA_ADV2 = 0.001
