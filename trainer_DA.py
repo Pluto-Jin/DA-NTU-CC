@@ -312,7 +312,7 @@ class Trainer():
         loss_adv1 = self.D1.cal_loss(pred_tar1,0)
         loss_adv2 = self.D2.cal_loss(pred_tar2,0,self.cfg.TWO_DIS)
 
-        loss_adv = self.lambda_adv1*loss_adv1 + self.lambda_adv2*loss_adv2
+        loss_adv = self.cfg.LAMBDA_ADV1*loss_adv1 + self.cfg.LAMBDA_ADV2*loss_adv2
         loss_adv.backward()
 
         val_loss = self.net.loss(pred_tar,gt_tar)
