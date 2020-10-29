@@ -11,7 +11,7 @@ import pandas as pd
 from .setting import cfg_data 
 
 class NTU(data.Dataset):
-    def __init__(self, list_file, mode, main_transform=None, img_transform=None, gt_transform=None):
+    def __init__(self, list_file, mode, main_transform=None, img_transform=None, gt_transform=None, max_iter=None):
 
 #         self.crowd_level = []
 #         self.time = []
@@ -26,24 +26,17 @@ class NTU(data.Dataset):
         for line in lines:
             self.file_folder.append('hall')
             self.file_name.append(line.split('.')[0])
-            continue
 
-            splited = line.strip().split()
-
-#             self.crowd_level.append(splited[0])
-#             self.time.append(splited[1])
-#             self.weather.append(splited[2])
-            self.file_folder.append(splited[0])
-            self.file_name.append(splited[1])
-#             self.gt_cnt.append(int(splited[5]))
+        if max_iter:
+            self.file_folder = self.file_folder * (int(np.floor(float(max_iter)/len(self.file_folder)))+1)
+            self.file_name = self.file_name * (int(np.floor(float(max_iter)/len(self.file_name)))+1)
 
         self.mode = mode
         self.main_transform = main_transform  
         self.img_transform = img_transform
         self.gt_transform = gt_transform
-        self.num_samples = len(lines)   
-        
-    
+        self.num_samples = len(lines)
+
     def __getitem__(self, index):
         img, den = self.read_image_and_gt(index)
       
