@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import pdb
 
 class CrowdCounter(nn.Module):
-    def __init__(self,gpus,model_name,cfg=None):
+    def __init__(self,gpus,model_name,DA=False,cfg=None):
         super(CrowdCounter, self).__init__()        
 
         if model_name == 'AlexNet':
@@ -75,14 +75,21 @@ class CrowdCounter(nn.Module):
             from .SCC_Model.Res101_SFCN_IN_ import Res101_SFCN_IN as net
         elif model_name == 'Res101_SFCN_IN_cam':
             from .SCC_Model.Res101_SFCN_IN_cam import Res101_SFCN_IN as net
+
+        self.DA = DA
         print('============Using {}============='.format(model_name))
         if cfg==None:
             print('cfg is None in CC.py')
-            self.CCN = net()
+            if self.DA:
+                print('Domain Adaptation!')
+                self.CCN = net(DA=self.DA)
+            else:
+                print('no Domain Adaptation!')
+                self.CCN = net()
         else:
             print('cfg is not None in CC.py')
             self.CCN = net(cfg=cfg)
-        
+
 #         if model_name == 'VGG_DECODER':
 #             print('load VGG_DECODER with pretrained!')
 
@@ -104,14 +111,22 @@ class CrowdCounter(nn.Module):
     def forward(self, img, gt_map):
         if self.model_name in ['Res50_cam','Res50_IN_cam','Res101_IN_cam','Res101_cam','Res101_SFCN_IN_cam','VGG_DECODER_IN_cam','VGG_DECODER_BN_cam']:
             density_map,energy = self.CCN(img)                    
-        else:   
+        elif self.DA:
+            d1_map, d2_map, density_map = self.CCN(img)
+            print('d1_map.shape',d1_map.shape)
+            print('d2_map.shape',d2_map.shape)
+            print('density_map.shape', density_map.shape)
+        else:
             density_map = self.CCN(img)
+
 #         print('gt_map.shape',gt_map.shape)
 #         print('density_map.shape',density_map.shape)
 
         self.loss_mse= self.build_loss(density_map.squeeze(), gt_map.squeeze())           
         if self.model_name in ['Res50_cam','Res50_IN_cam','Res101_IN_cam','Res101_cam','Res101_SFCN_IN_cam','VGG_DECODER_IN_cam','VGG_DECODER_BN_cam']:
             return density_map,energy
+        elif self.DA:
+            return d1_map, d2_map, density_map
         else:
             return density_map
     
@@ -123,6 +138,9 @@ class CrowdCounter(nn.Module):
         if self.model_name in ['Res50_cam','Res50_IN_cam','Res101_IN_cam','Res101_cam','Res101_SFCN_IN_cam','VGG_DECODER_IN_cam','VGG_DECODER_BN_cam']:
             density_map,energy = self.CCN(img)                    
             return density_map,energy
+        elif self.DA:
+            d1_map, d2_map, density_map = self.CCN(img)
+            return d1_map, d2_map, density_map
         else:
             density_map = self.CCN(img)                    
             return density_map

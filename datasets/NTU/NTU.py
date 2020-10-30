@@ -28,8 +28,10 @@ class NTU(data.Dataset):
             self.file_name.append(line.split('.')[0])
 
         if max_iter:
-            self.file_folder = self.file_folder * (int(np.floor(float(max_iter)/len(self.file_folder)))+1)
-            self.file_name = self.file_name * (int(np.floor(float(max_iter)/len(self.file_name)))+1)
+            print('origin len:',len(self.file_folder))
+            self.file_folder = self.file_folder * int(np.ceil(float(max_iter)/len(self.file_folder)))
+            self.file_name = self.file_name * int(np.ceil(float(max_iter)/len(self.file_name)))
+            print('current len:',len(self.file_folder))
 
         self.mode = mode
         self.main_transform = main_transform  

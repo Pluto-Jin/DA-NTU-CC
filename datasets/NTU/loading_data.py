@@ -8,7 +8,7 @@ import random
 
 
 
-def loading_data(mul = 1):
+def loading_data(epoch = 1):
     mean_std = cfg_data.MEAN_STD
     log_para = cfg_data.LOG_PARA
     train_main_transform = own_transforms.Compose([
@@ -63,8 +63,8 @@ def loading_data(mul = 1):
         train_list = 'new_split_list/train.txt'
 
     max_iter = None
-    if mul > 1:
-        max_iter = mul*sum(1 for line in open(cfg_data.DATA_PATH + train_list))
+    if epoch > 1:
+        max_iter = epoch*sum(1 for line in open(cfg_data.DATA_PATH + train_list))
 
     train_set = NTU(cfg_data.DATA_PATH + train_list, 'train',main_transform=train_main_transform, img_transform=img_transform, gt_transform=gt_transform,max_iter=max_iter)
     train_loader = DataLoader(train_set, batch_size=cfg_data.TRAIN_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=True)

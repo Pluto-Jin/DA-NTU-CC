@@ -12,7 +12,7 @@ import pdb
 # model_path = '../PyTorch_Pretrained/resnet50-19c8e357.pth'
 
 class Res50(nn.Module):
-    def __init__(self,  pretrained=True):
+    def __init__(self, DA=False, pretrained=True):
         super(Res50, self).__init__()
 
         self.de_pred1 = Conv2d(1024, 128, 1, same_padding=True, NL='relu')
@@ -29,13 +29,10 @@ class Res50(nn.Module):
         self.own_reslayer_3 = make_res_layer(Bottleneck, 256, 6, stride=1)        
         if pretrained:
             self.own_reslayer_3.load_state_dict(res.layer3.state_dict())
-
-        
-
+        self.DA = DA
 
     def forward(self,x):
 
-        
         x = self.frontend(x)
 
         x = self.own_reslayer_3(x)
@@ -47,7 +44,10 @@ class Res50(nn.Module):
         x = self.de_pred2(x)
 
         x = F.upsample(x,scale_factor=8)
-        return layer1, layer2, x
+        if self.DA:
+            return layer1, layer2, x
+        else:
+            return x
 
     def _initialize_weights(self):
         for m in self.modules():
