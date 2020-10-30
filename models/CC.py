@@ -113,9 +113,9 @@ class CrowdCounter(nn.Module):
             density_map,energy = self.CCN(img)                    
         elif self.DA:
             d1_map, d2_map, density_map = self.CCN(img)
-            print('d1_map.shape',d1_map.shape)
-            print('d2_map.shape',d2_map.shape)
-            print('density_map.shape', density_map.shape)
+            # print('d1_map.shape',d1_map.shape)
+            # print('d2_map.shape',d2_map.shape)
+            # print('density_map.shape', density_map.shape)
         else:
             density_map = self.CCN(img)
 
