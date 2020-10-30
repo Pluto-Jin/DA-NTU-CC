@@ -329,7 +329,7 @@ class Trainer():
         for param in self.D1.parameters():
             param.requires_grad = True
         for param in self.D2.parameters():
-            param.requires_grad = self.cfg.TWO_DIS
+            param.requires_grad = True
 
             #source
         pred1 = pred1.detach()
@@ -338,7 +338,8 @@ class Trainer():
         loss_d1 = self.D1.cal_loss(pred1,0)
         loss_d2 = self.D2.cal_loss(pred2,0)
         loss_d1.backward()
-        loss_d2.backward()
+        if self.cfg.TWO_DIS:
+            loss_d2.backward()
 
         loss_D1 = loss_d1
         loss_D2 = loss_d2
@@ -350,10 +351,14 @@ class Trainer():
         loss_d1 = self.D1.cal_loss(pred_tar1,1)
         loss_d2 = self.D2.cal_loss(pred_tar2,1)
         loss_d1.backward()
-        loss_d2.backward()
+        if self.cfg.TWO_DIS:
+            loss_d2.backward()
 
         loss_D1 += loss_d1
         loss_D2 += loss_d2
+
+        if self.cfg.TWO_DIS:
+            loss_D2 = 0
 
         return loss_D1,loss_D2
 
