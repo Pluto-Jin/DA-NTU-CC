@@ -35,12 +35,9 @@ class FCDiscriminator(nn.Module):
 
 		return x
 
-	def cal_loss(self, x, gt, flag=1):
-		if flag != 1:
-			return 0
-		else:
-			x = self.forward(x)
-			fill = torch.ones if gt else torch.zeros
-			#print(x.device,fill(x.shape).device)
-			return self.loss(x, fill(x.shape).cuda())
+	def cal_loss(self, x, gt):
+		x = self.forward(x)
+		fill = torch.ones if gt else torch.zeros
+		#print(x.device,fill(x.shape).device)
+		return self.loss(x, fill(x.shape).cuda())
 
