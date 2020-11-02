@@ -205,6 +205,8 @@ class Trainer():
 
         '''modify dataloader'''
         self.train_loader, self.target_loader, self.restore_transform, self.epoch_len = dataloader(self.cfg.MAX_EPOCH)
+        print("train:",len(self.train_loader.dataset))
+        print("target:",len(self.target_loader.dataset))
         self.train_loader_iter = enumerate(self.train_loader)
         self.target_loader_iter = enumerate(self.target_loader)
 
@@ -230,13 +232,14 @@ class Trainer():
 
         for epoch in range(self.epoch, self.cfg.MAX_EPOCH):
             self.epoch = epoch
-            if epoch > self.cfg.LR_DECAY_START:
-                self.scheduler.step()
 
             # training
             self.timer['train time'].tic()
             self.train()
             self.timer['train time'].toc(average=False)
+
+            if epoch > self.cfg.LR_DECAY_START:
+                self.scheduler.step()
 
             print('train time: {:.2f}s'.format(self.timer['train time'].diff))
             print('=' * 20)
