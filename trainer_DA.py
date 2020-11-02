@@ -204,7 +204,7 @@ class Trainer():
         #             self.net=torch.nn.DataParallel(self.net, device_ids=cfg.GPU_ID).cuda()
 
         '''modify dataloader'''
-        self.train_loader, self.target_loader, self.restore_transform, self.epoch_len = dataloader(self.cfg.MAX_EPOCH)
+        self.train_loader, self.target_loader, self.restore_transform, self.source_len, self.target_len = dataloader(self.cfg.MAX_EPOCH)
         print("train:",len(self.train_loader.dataset))
         print("target:",len(self.target_loader.dataset))
         self.train_loader_iter = enumerate(self.train_loader)
@@ -262,7 +262,7 @@ class Trainer():
     def train(self):  # training for all datasets
         self.net.train()
 
-        for i in range(self.epoch_len//self.cfg_data.TRAIN_BATCH_SIZE):
+        for i in range(self.source_len//self.cfg_data.TRAIN_BATCH_SIZE):
             self.timer['iter time'].tic()
             img, gt_img = self.train_loader_iter.__next__()[1]
             tar, gt_tar = self.target_loader_iter.__next__()[1]
@@ -372,6 +372,9 @@ class Trainer():
         mses = AverageMeter()
 
         for vi, data in enumerate(self.target_loader, 0):
+            if vi>=self.target_len:
+                break
+
             img, gt_map = data
 
             with torch.no_grad():

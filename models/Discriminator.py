@@ -37,7 +37,11 @@ class FCDiscriminator(nn.Module):
 
 	def cal_loss(self, x, gt):
 		x = self.forward(x)
+		print(x.shape)
+
 		fill = torch.ones if gt else torch.zeros
-		#print(x.device,fill(x.shape).device)
-		return self.loss(x, fill(x.shape).cuda())
+		loss = self.loss(x, fill(x.shape).cuda())
+		print(loss.item())
+
+		return loss
 
