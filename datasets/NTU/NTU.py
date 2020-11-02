@@ -37,7 +37,7 @@ class NTU(data.Dataset):
         self.main_transform = main_transform  
         self.img_transform = img_transform
         self.gt_transform = gt_transform
-        self.num_samples = len(lines)
+        self.num_samples = len(self.file_folder)
 
     def __getitem__(self, index):
         img, den = self.read_image_and_gt(index)
