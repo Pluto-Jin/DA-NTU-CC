@@ -40,9 +40,11 @@ class FCDiscriminator(nn.Module):
 		x = self.forward(x)
 		# print('out', x.shape)
 
+		print(x)
+
 		fill = torch.ones if gt else torch.zeros
 		loss = self.loss(x, fill(x.shape).cuda())
-		# print(loss.item())
+		print(loss.item())
 
 		return loss
 
