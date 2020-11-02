@@ -62,9 +62,10 @@ def loading_data(epoch = 1):
         test_list = 'new_split_list/test.txt'
         train_list = 'new_split_list/train.txt'
 
+    train_len = sum(1 for line in open(cfg_data.DATA_PATH + train_list))
     max_iter = None
     if epoch > 1:
-        max_iter = epoch*sum(1 for line in open(cfg_data.DATA_PATH + train_list))
+        max_iter = epoch*train_len
 
     train_set = NTU(cfg_data.DATA_PATH + train_list, 'train',main_transform=train_main_transform, img_transform=img_transform, gt_transform=gt_transform,max_iter=max_iter)
     train_loader = DataLoader(train_set, batch_size=cfg_data.TRAIN_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=True)
@@ -72,4 +73,4 @@ def loading_data(epoch = 1):
     val_set = NTU(cfg_data.DATA_PATH + test_list, 'test', main_transform=None, img_transform=img_transform, gt_transform=gt_transform,max_iter=max_iter)
     val_loader = DataLoader(val_set, batch_size=cfg_data.VAL_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=False)
 
-    return train_loader, val_loader, restore_transform
+    return train_loader, val_loader, restore_transform, train_len

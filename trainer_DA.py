@@ -204,8 +204,7 @@ class Trainer():
         #             self.net=torch.nn.DataParallel(self.net, device_ids=cfg.GPU_ID).cuda()
 
         '''modify dataloader'''
-        self.train_loader, self.target_loader, self.restore_transform = dataloader(self.cfg.MAX_EPOCH)
-        self.epoch_len = len(self.train_loader.dataset)
+        self.train_loader, self.target_loader, self.restore_transform, self.epoch_len = dataloader(self.cfg.MAX_EPOCH)
         self.train_loader_iter = enumerate(self.train_loader)
         self.target_loader_iter = enumerate(self.target_loader)
 
