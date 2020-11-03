@@ -185,8 +185,8 @@ class Trainer():
         self.D1.apply(weights_init())
         self.D2.apply(weights_init())
 
-        self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.LR_DECAY, betas=(0.9, 0.99))
-        self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.LR_DECAY, betas=(0.9, 0.99))
+        self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.LR, betas=(0.9, 0.99))
+        self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.LR, betas=(0.9, 0.99))
 
         '''loss and lambdas here'''
         self.lambda_adv1 = cfg.LAMBDA_ADV1
@@ -274,7 +274,7 @@ class Trainer():
             gt_tar = Variable(gt_tar).cuda()
 
             #gen loss
-            loss, loss_adv, loss_adv1, loss_adv2, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar,i)
+            loss, loss_adv, loss_adv1, loss_adv2, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar)
 
             #dis loss
             loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
@@ -300,7 +300,7 @@ class Trainer():
 
         self.writer.add_scalar('lr', self.optimizer.param_groups[0]['lr'], self.epoch + 1)
 
-    def gen_update(self,img,tar,gt_img,gt_tar,i_iter):
+    def gen_update(self,img,tar,gt_img,gt_tar):
         self.optimizer.zero_grad()
 
         for param in self.D1.parameters():
@@ -310,7 +310,7 @@ class Trainer():
 
         #source
         pred1, pred2, pred = self.net(img,gt_img)
-        loss = self.net.loss
+        loss = self.net.loss()
         loss.backward()
 
         #target
@@ -337,8 +337,8 @@ class Trainer():
         pred1 = pred1.detach()
         pred2 = pred2.detach()
 
-        loss_d1 = self.D1.cal_loss(pred1,0)
-        loss_d2 = self.D2.cal_loss(pred2,0)
+        loss_d1 = self.D1.cal_loss(pred1, 0)
+        loss_d2 = self.D2.cal_loss(pred2, 0)
         loss_d1.backward()
         if self.cfg.TWO_DIS:
             loss_d2.backward()
@@ -350,17 +350,14 @@ class Trainer():
         pred_tar1 = pred_tar1.detach()
         pred_tar2 = pred_tar2.detach()
 
-        loss_d1 = self.D1.cal_loss(pred_tar1,1)
-        loss_d2 = self.D2.cal_loss(pred_tar2,1)
+        loss_d1 = self.D1.cal_loss(pred_tar1, 1)
+        loss_d2 = self.D2.cal_loss(pred_tar2, 1)
         loss_d1.backward()
         if self.cfg.TWO_DIS:
             loss_d2.backward()
 
         loss_D1 += loss_d1
         loss_D2 += loss_d2
-
-        if self.cfg.TWO_DIS:
-            loss_D2 = 0
 
         return loss_D1,loss_D2
 
