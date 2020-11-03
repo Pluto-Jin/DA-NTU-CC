@@ -256,6 +256,7 @@ class Trainer():
                     self.validate_V3()
                 elif self.data_mode is 'NTU':
                     self.validate_V4()
+                self.validate_source()
                 self.timer['val time'].toc(average=False)
                 print('val time: {:.2f}s'.format(self.timer['val time'].diff))
 
@@ -360,6 +361,46 @@ class Trainer():
         loss_D2 += loss_d2
 
         return loss_D1,loss_D2
+
+    def validate_source(self):
+        self.net.eval()
+        losses = AverageMeter()
+        maes = AverageMeter()
+        mses = AverageMeter()
+
+        for vi, data in enumerate(self.train_loader, 0):
+            if vi>=self.source_len:
+                break
+
+            img, gt_map = data
+
+            with torch.no_grad():
+                img = Variable(img).cuda()
+                gt_map = Variable(gt_map).cuda()
+
+                _, _, pred_map = self.net.forward(img, gt_map)
+
+                pred_map = pred_map.data.cpu().numpy()
+                gt_map = gt_map.data.cpu().numpy()
+
+                for i_img in range(pred_map.shape[0]):
+                    pred_cnt = np.sum(pred_map[i_img]) / self.cfg_data.LOG_PARA
+                    gt_count = np.sum(gt_map[i_img]) / self.cfg_data.LOG_PARA
+
+                    s_mae = abs(gt_count - pred_cnt)
+                    s_mse = (gt_count - pred_cnt) * (gt_count - pred_cnt)
+
+                    losses.update(self.net.loss.item())
+                    maes.update(s_mae)
+                    mses.update(s_mse)
+
+        loss = losses.avg
+        mae = maes.avg
+        mse = np.sqrt(mses.avg)
+
+        print("test on train set")
+        print_NTU_summary(self.log_txt, self.epoch, [mae, mse, loss], self.train_record)
+
 
     def validate_V4(self):  # validate_V4 for NTU
         self.net.eval()
