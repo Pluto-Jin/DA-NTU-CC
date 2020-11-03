@@ -310,7 +310,7 @@ class Trainer():
 
         #source
         pred1, pred2, pred = self.net(img,gt_img)
-        loss = self.net.loss()
+        loss = self.net.loss
         loss.backward()
 
         #target
