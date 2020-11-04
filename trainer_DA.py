@@ -263,7 +263,7 @@ class Trainer():
                     self.validate_V3()
                 elif self.data_mode is 'NTU':
                     self.validate_V4()
-                self.validate_train()
+                # self.validate_train()
                 self.timer['val time'].toc(average=False)
                 print('val time: {:.2f}s'.format(self.timer['val time'].diff))
 
