@@ -24,8 +24,11 @@ class NTU(data.Dataset):
             lines = f.readlines()
         
         for line in lines:
-            self.file_folder.append('hall')
-            self.file_name.append(line.split('.')[0])
+            tmp = line.split(' ')
+            if len(tmp) == 1:
+                tmp = ['hall'] + tmp
+            self.file_folder.append(tmp[0])
+            self.file_name.append(tmp[1].split('.')[0])
 
         self.mode = mode
         self.main_transform = main_transform  
