@@ -21,7 +21,7 @@ class NTU(data.Dataset):
 #         self.gt_cnt = []
         
         with open(list_file) as f:
-            lines = f.readlines()
+            lines = f.read().splitlines()
         
         for line in lines:
             tmp = line.split(' ')
