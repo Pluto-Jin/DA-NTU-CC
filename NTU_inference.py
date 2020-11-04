@@ -46,7 +46,8 @@ test_list={'normal_training':'NTU_test_correct.txt',
            'normal_train_ab_test_ssc':'NTU_test_ssc_correct.txt',
            'density_train_ssc_test_ab':'NTU_density_split_test_ab_correct.txt',
            'density_train_ab_test_ssc':'NTU_density_split_test_ssc_correct.txt',
-           'hall':'test.txt'
+           'hall':'test.txt',
+           'hall_train':'train.txt'
           }
 
 parser = argparse.ArgumentParser(description='Crowd Counting NTU dataset Inference')
