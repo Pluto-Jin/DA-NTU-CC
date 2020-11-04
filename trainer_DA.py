@@ -228,7 +228,7 @@ class Trainer():
             self.train_record = latest_state['train_record']
             self.exp_path = latest_state['exp_path']
             self.exp_name = latest_state['exp_name']
-        self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.train_loader, self.target_loader, resume=cfg.RESUME, cfg=cfg)
+        self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.source_loader, self.test_loader, resume=cfg.RESUME, cfg=cfg)
 
     def forward(self):
         #         print('forward!!')
