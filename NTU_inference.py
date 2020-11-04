@@ -135,7 +135,7 @@ with open(os.path.join(args.data,'new_split_list',test_list[args.test_mode])) as
     lines = f.readlines()
 for line in lines:
     file_folder.append('hall')
-    file_name.append(line[:-5])
+    file_name.append(line.split('.')[0])
     
     
     
