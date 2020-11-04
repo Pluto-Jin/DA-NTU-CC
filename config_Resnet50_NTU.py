@@ -74,7 +74,7 @@ if __C.DATASET == 'NTU':
 	__C.EXP_NAME += '_' + __C.VAL_MODE	
 
 if not os.path.exists(__C.EXP_PATH):
-    os.makedirs(__C.EXP_PATH)
+	os.makedirs(__C.EXP_PATH)
 
 #------------------------------VAL------------------------
 __C.VAL_DENSE_START = -1

@@ -62,10 +62,24 @@ def loading_data():
         test_list = 'new_split_list/test.txt'
         train_list = 'new_split_list/train.txt'
 
+    elif cfg_data.VAL_MODE=='hall_DA':
+        test_list = 'new_split_list/test.txt'
+        train_list = 'Train Test Splitting list/normal_training/NTU_train_correct.txt'
+        train_target_list = 'new_split_list/train.txt'
+
     train_set = NTU(cfg_data.DATA_PATH + train_list, 'train',main_transform=train_main_transform, img_transform=img_transform, gt_transform=gt_transform)
     train_loader = DataLoader(train_set, batch_size=cfg_data.TRAIN_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=True)
 
     val_set = NTU(cfg_data.DATA_PATH + test_list, 'test', main_transform=None, img_transform=img_transform, gt_transform=gt_transform)
     val_loader = DataLoader(val_set, batch_size=cfg_data.VAL_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=False)
+
+    if (cfg_data.VAL_MODE=='hall_DA'):
+        train_target_set = NTU(cfg_data.DATA_PATH + train_target_list, 'train', main_transform=None, img_transform=img_transform,
+                      gt_transform=gt_transform)
+        train_target_loader = DataLoader(train_target_set, batch_size=cfg_data.TRAIN_BATCH_SIZE, num_workers=8, shuffle=True,
+                                drop_last=True)
+        print('source domain:',train_list)
+        print('target domain:',train_target_list)
+        return train_loader, train_target_loader, val_loader, restore_transform
 
     return train_loader, val_loader, restore_transform

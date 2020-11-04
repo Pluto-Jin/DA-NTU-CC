@@ -209,12 +209,12 @@ class Trainer():
         #             self.net=torch.nn.DataParallel(self.net, device_ids=cfg.GPU_ID).cuda()
 
         '''modify dataloader'''
-        self.train_loader, self.target_loader, self.restore_transform = dataloader()
-        self.source_len = len(self.train_loader.dataset)
+        self.source_loader, self.target_loader, self.test_loader, self.restore_transform = dataloader()
+        self.source_len = len(self.source_loader.dataset)
         self.target_len = len(self.target_loader.dataset)
-        print("train:",self.source_len)
+        print("source:",self.source_len)
         print("target:",self.target_len)
-        self.train_loader_iter = cycle(self.train_loader)
+        self.source_loader_iter = cycle(self.source_loader)
         self.target_loader_iter = cycle(self.target_loader)
 
         if cfg.RESUME:
@@ -263,21 +263,17 @@ class Trainer():
                     self.validate_V3()
                 elif self.data_mode is 'NTU':
                     self.validate_V4()
-                self.validate_source()
+                self.validate_train()
                 self.timer['val time'].toc(average=False)
                 print('val time: {:.2f}s'.format(self.timer['val time'].diff))
 
     def train(self):  # training for all datasets
         self.net.train()
 
-        assert self.cfg_data.TRAIN_BATCH_SIZE == self.cfg_data.VAL_BATCH_SIZE, "in DA, source BS must be equal to target BS"
-
-        for i in range(len(self.train_loader)):
+        for i in range(max(len(self.source_loader),len(self.target_loader))):
             self.timer['iter time'].tic()
-            img, gt_img = self.train_loader_iter.__next__()
+            img, gt_img = self.source_loader_iter.__next__()
             tar, gt_tar = self.target_loader_iter.__next__()
-            if len(tar) < self.cfg_data.VAL_BATCH_SIZE:
-                tar, gt_tar = self.target_loader_iter.__next__()
 
             img = Variable(img).cuda()
             gt_img = Variable(gt_img).cuda()
@@ -373,13 +369,13 @@ class Trainer():
 
         return loss_D1,loss_D2
 
-    def validate_source(self):
+    def validate_train(self):
         self.net.eval()
         losses = AverageMeter()
         maes = AverageMeter()
         mses = AverageMeter()
 
-        for img, gt_map in self.train_loader:
+        for img, gt_map in self.target_loader:
 
             with torch.no_grad():
                 img = Variable(img).cuda()
@@ -416,7 +412,7 @@ class Trainer():
         maes = AverageMeter()
         mses = AverageMeter()
 
-        for vi, data in enumerate(self.target_loader, 0):
+        for vi, data in enumerate(self.test_loader, 0):
 
             img, gt_map = data
 

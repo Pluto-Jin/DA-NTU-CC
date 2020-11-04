@@ -12,7 +12,7 @@ __C_NTU.TRAIN_SIZE = (480,848)#NTU
 __C_NTU.DATA_PATH = '/home/jinc0008/dataset/CrowdCounting/'
 # __C_NTU.DATA_PATH = '../NTU'
 
-__C_NTU.VAL_MODE = 'hall' # Options:normal,density,normal_ab_only,normal_ssc_only,density_ssc_only,density_ab_only,normal_train_ab_test_ssc,normal_train_ssc_test_ab,density_train_ssc_test_ab,density_train_ab_test_ssc
+__C_NTU.VAL_MODE = 'hall_DA' # Options:normal,density,normal_ab_only,normal_ssc_only,density_ssc_only,density_ab_only,normal_train_ab_test_ssc,normal_train_ssc_test_ab,density_train_ssc_test_ab,density_train_ab_test_ssc
 
 
 __C_NTU.DATA_GT = 'k15_s4'            
