@@ -11,7 +11,7 @@ import pandas as pd
 from .setting import cfg_data 
 
 class NTU(data.Dataset):
-    def __init__(self, list_file, mode, main_transform=None, img_transform=None, gt_transform=None, max_iter=None):
+    def __init__(self, list_file, mode, main_transform=None, img_transform=None, gt_transform=None):
 
 #         self.crowd_level = []
 #         self.time = []
@@ -26,12 +26,6 @@ class NTU(data.Dataset):
         for line in lines:
             self.file_folder.append('hall')
             self.file_name.append(line.split('.')[0])
-
-        if max_iter:
-            print('origin len:',len(self.file_folder))
-            self.file_folder = self.file_folder * int(np.ceil(float(max_iter)/len(self.file_folder)))
-            self.file_name = self.file_name * int(np.ceil(float(max_iter)/len(self.file_name)))
-            print('current len:',len(self.file_folder))
 
         self.mode = mode
         self.main_transform = main_transform  
