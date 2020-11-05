@@ -276,6 +276,7 @@ class Trainer():
         self.net.train()
 
         for i in range(max(len(self.source_loader),len(self.target_loader))):
+            torch.cuda.empty_cache()
             self.timer['iter time'].tic()
             img, gt_img = self.source_loader_iter.__next__()
             tar, gt_tar = self.target_loader_iter.__next__()
