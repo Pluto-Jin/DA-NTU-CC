@@ -307,7 +307,6 @@ class Trainer():
             pred_tar1, pred_tar2, pred_tar = self.net(tar, gt_tar)
             self.optimizer.step()
 
-            '''
             if self.cfg.DIS > 0:
 
                 loss_adv = self.D1.cal_loss(pred_tar1, 0) * self.cfg.LAMBDA_ADV1
@@ -316,6 +315,7 @@ class Trainer():
                     loss_adv += self.D2.cal_loss(pred_tar2, 0) * self.cfg.LAMBDA_ADV2
 
                 loss_adv.backward()
+            '''
 
 
 
