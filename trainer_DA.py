@@ -186,19 +186,19 @@ class Trainer():
             self.channel1, self.channel2 = 1024, 128
 
         self.D1 = FCDiscriminator(self.channel1, self.bce_loss).cuda()
-        self.D2 = FCDiscriminator(self.channel2, self.bce_loss).cuda()
+        # self.D2 = FCDiscriminator(self.channel2, self.bce_loss).cuda()
         self.D1.apply(weights_init())
-        self.D2.apply(weights_init())
+        # self.D2.apply(weights_init())
 
         self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
-        self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
+        # self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
 
         self.scheduler_D1 = StepLR(self.d1_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
-        self.scheduler_D2 = StepLR(self.d2_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
+        # self.scheduler_D2 = StepLR(self.d2_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
 
         '''loss and lambdas here'''
         self.lambda_adv1 = cfg.LAMBDA_ADV1
-        self.lambda_adv2 = cfg.LAMBDA_ADV2
+        # self.lambda_adv2 = cfg.LAMBDA_ADV2
 
 
         if cfg.PRE_GCC:
@@ -251,7 +251,7 @@ class Trainer():
             if epoch > self.cfg.LR_DECAY_START:
                 self.scheduler.step()
                 self.scheduler_D1.step()
-                self.scheduler_D2.step()
+                # self.scheduler_D2.step()
 
             print('train time: {:.2f}s'.format(self.timer['train time'].diff))
             print('=' * 20)
@@ -276,7 +276,6 @@ class Trainer():
         self.net.train()
 
         for i in range(max(len(self.source_loader),len(self.target_loader))):
-            torch.cuda.empty_cache()
             self.timer['iter time'].tic()
             img, gt_img = self.source_loader_iter.__next__()
             tar, gt_tar = self.target_loader_iter.__next__()
@@ -295,18 +294,18 @@ class Trainer():
 
             self.optimizer.step()
             self.d1_opt.step()
-            self.d2_opt.step()
+            # self.d2_opt.step()
 
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
                 self.writer.add_scalar('train_loss', loss.item(), self.i_tb)
                 self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
                 self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
-                self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
+                # self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
                 self.timer['iter time'].toc(average=False)
 
                 print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
-                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if not loss_adv else 0, loss_d1.item(), loss_d2.item(), self.optimizer.param_groups[0]['lr'],
+                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if loss_adv else 0, loss_d1.item(), loss_d2.item() if loss_d2 else 0, self.optimizer.param_groups[0]['lr'],
                        self.timer['iter time'].diff))
                 print('        [cnt: gt: %.1f pred: %.2f][tar: gt: %.1f pred: %.2f]' % (
                 gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA,
@@ -319,8 +318,8 @@ class Trainer():
 
         for param in self.D1.parameters():
             param.requires_grad = False
-        for param in self.D2.parameters():
-            param.requires_grad = False
+        # for param in self.D2.parameters():
+        #     param.requires_grad = False
 
         #source
         pred1, pred2, pred = self.net(img,gt_img)
@@ -345,19 +344,20 @@ class Trainer():
 
     def dis_update(self,pred1,pred2,pred_tar1,pred_tar2):
         self.d1_opt.zero_grad()
-        self.d2_opt.zero_grad()
+        # self.d2_opt.zero_grad()
 
         for param in self.D1.parameters():
             param.requires_grad = True
-        for param in self.D2.parameters():
-            param.requires_grad = True
+        # for param in self.D2.parameters():
+        #     param.requires_grad = True
 
             #source
         pred1 = pred1.detach()
         pred2 = pred2.detach()
+        loss_d2 = None
 
         loss_d1 = self.D1.cal_loss(pred1, 0)
-        loss_d2 = self.D2.cal_loss(pred2, 0)
+        # loss_d2 = self.D2.cal_loss(pred2, 0)
         if self.cfg.DIS > 0 :
             loss_d1.backward()
         else:
@@ -373,7 +373,7 @@ class Trainer():
         pred_tar2 = pred_tar2.detach()
 
         loss_d1 = self.D1.cal_loss(pred_tar1, 1)
-        loss_d2 = self.D2.cal_loss(pred_tar2, 1)
+        # loss_d2 = self.D2.cal_loss(pred_tar2, 1)
         if self.cfg.DIS > 0:
             loss_d1.backward()
         else:
@@ -382,7 +382,7 @@ class Trainer():
             loss_d2.backward()
 
         loss_D1 += loss_d1
-        loss_D2 += loss_d2
+        # loss_D2 += loss_d2
 
         return loss_D1,loss_D2
 
