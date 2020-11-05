@@ -338,6 +338,8 @@ class Trainer():
             loss_adv += self.cfg.LAMBDA_ADV2*loss_adv2
         if self.cfg.DIS > 0:
             loss_adv.backward()
+        else:
+            loss_adv = 0
 
         return loss,loss_adv,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2
 
@@ -358,6 +360,8 @@ class Trainer():
         loss_d2 = self.D2.cal_loss(pred2, 0)
         if self.cfg.DIS > 0 :
             loss_d1.backward()
+        else:
+            loss_d1 = 0
         if self.cfg.DIS > 1:
             loss_d2.backward()
 
@@ -372,6 +376,8 @@ class Trainer():
         loss_d2 = self.D2.cal_loss(pred_tar2, 1)
         if self.cfg.DIS > 0:
             loss_d1.backward()
+        else:
+            loss_d1 = 0
         if self.cfg.DIS > 1:
             loss_d2.backward()
 
