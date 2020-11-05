@@ -268,7 +268,7 @@ class Trainer():
                     self.validate_V3()
                 elif self.data_mode is 'NTU':
                     self.validate_V4()
-                # self.validate_train()
+                self.validate_train()
                 self.timer['val time'].toc(average=False)
                 print('val time: {:.2f}s'.format(self.timer['val time'].diff))
 
@@ -380,7 +380,7 @@ class Trainer():
         maes = AverageMeter()
         mses = AverageMeter()
 
-        for img, gt_map in self.target_loader:
+        for img, gt_map in self.source_loader:
 
             with torch.no_grad():
                 img = Variable(img).cuda()
@@ -406,7 +406,7 @@ class Trainer():
         mae = maes.avg
         mse = np.sqrt(mses.avg)
 
-        print("test on train set")
+        print("test on source domain")
         print_NTU_summary(self.log_txt, self.epoch, [mae, mse, loss], self.train_record)
 
 
