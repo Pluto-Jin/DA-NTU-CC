@@ -330,7 +330,7 @@ class Trainer():
                 self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
                 self.timer['iter time'].toc(average=False)
 
-                print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
+                print('[ep %d][it %d][loss %.4f][loss_adv %.8f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
                       (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if loss_adv else 0, loss_d1.item() if loss_d1 else 0, loss_d2.item() if loss_d2 else 0, self.optimizer.param_groups[0]['lr'],
                        self.timer['iter time'].diff))
                 print('        [cnt: gt: %.1f pred: %.2f]' % (
