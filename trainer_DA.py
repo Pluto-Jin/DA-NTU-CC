@@ -276,6 +276,7 @@ class Trainer():
         self.net.train()
 
         for i in range(max(len(self.source_loader),len(self.target_loader))):
+            print(i,'hhhhhhh')
             torch.cuda.empty_cache()
             self.timer['iter time'].tic()
             img, gt_img = self.source_loader_iter.__next__()
@@ -300,7 +301,7 @@ class Trainer():
             pred1, pred2, pred = self.net(img, gt_img)
             loss = self.net.loss
             loss.backward()
-
+            '''
             loss_adv = None
 
             # target
@@ -340,6 +341,7 @@ class Trainer():
                 print('        [cnt: gt: %.1f pred: %.2f][tar: gt: %.1f pred: %.2f]' % (
                 gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA,
                 gt_tar[0].sum().data / self.cfg_data.LOG_PARA, pred_tar[0].sum().data / self.cfg_data.LOG_PARA))
+            '''
 
         self.writer.add_scalar('lr', self.optimizer.param_groups[0]['lr'], self.epoch + 1)
 
