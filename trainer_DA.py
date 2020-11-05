@@ -332,8 +332,12 @@ class Trainer():
         loss_adv1 = self.D1.cal_loss(pred_tar1,0)
         loss_adv2 = self.D2.cal_loss(pred_tar2,0)
 
-        loss_adv = self.cfg.LAMBDA_ADV1*loss_adv1 + self.cfg.TWO_DIS*self.cfg.LAMBDA_ADV2*loss_adv2
-        loss_adv.backward()
+        loss_adv = self.cfg.LAMBDA_ADV1*loss_adv1
+
+        if self.cfg.DIS > 1:
+            loss_adv += self.cfg.LAMBDA_ADV2*loss_adv2
+        if self.cfg.DIS > 0:
+            loss_adv.backward()
 
         return loss,loss_adv,loss_adv1,loss_adv2,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2
 
@@ -352,8 +356,9 @@ class Trainer():
 
         loss_d1 = self.D1.cal_loss(pred1, 0)
         loss_d2 = self.D2.cal_loss(pred2, 0)
-        loss_d1.backward()
-        if self.cfg.TWO_DIS:
+        if self.cfg.DIS > 0 :
+            loss_d1.backward()
+        if self.cfg.DIS > 1:
             loss_d2.backward()
 
         loss_D1 = loss_d1
@@ -365,8 +370,9 @@ class Trainer():
 
         loss_d1 = self.D1.cal_loss(pred_tar1, 1)
         loss_d2 = self.D2.cal_loss(pred_tar2, 1)
-        loss_d1.backward()
-        if self.cfg.TWO_DIS:
+        if self.cfg.DIS > 0:
+            loss_d1.backward()
+        if self.cfg.DIS > 1:
             loss_d2.backward()
 
         loss_D1 += loss_d1

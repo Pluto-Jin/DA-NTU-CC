@@ -29,7 +29,7 @@ __C.DA = True #domain adaptation flag
 __C.GAN = 'Vanilla' #Vanilla, LS
 __C.LAMBDA_ADV1 = 0.0002
 __C.LAMBDA_ADV2 = 0.001
-__C.TWO_DIS = False
+__C.DIS = 0
 __C.D_LR = 1e-5
 
 
