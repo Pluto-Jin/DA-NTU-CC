@@ -29,6 +29,6 @@ __C_NTU.RESUME_MODEL = ''#model path
 __C_NTU.TRAIN_BATCH_SIZE = 6 #imgs
 
 # __C_NTU.VAL_BATCH_SIZE = 16 #
-__C_NTU.VAL_BATCH_SIZE = 16 #
+__C_NTU.VAL_BATCH_SIZE = 32 #
 
 
