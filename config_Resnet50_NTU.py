@@ -27,7 +27,7 @@ __C.NET = 'Res50' # net selection: MCNN, AlexNet, VGG, VGG_DECODER, Res50, CSRNe
 #DA settings
 __C.DA = True #domain adaptation flag
 __C.GAN = 'Vanilla' #Vanilla, LS
-__C.LAMBDA_ADV1 = 0.0002
+__C.LAMBDA_ADV1 = 2e-7 #2e-4(not good),2e-5,2e-6,2e-7
 __C.LAMBDA_ADV2 = 0.001
 __C.DIS = 0
 __C.D_LR = 1e-5

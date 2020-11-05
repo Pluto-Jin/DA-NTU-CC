@@ -325,9 +325,9 @@ class Trainer():
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
                 self.writer.add_scalar('train_loss', loss.item(), self.i_tb)
-                #self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
-                # self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
-                # self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
+                self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
+                self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
+                self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
                 self.timer['iter time'].toc(average=False)
 
                 print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
