@@ -305,7 +305,7 @@ class Trainer():
                 self.timer['iter time'].toc(average=False)
 
                 print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
-                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item(), loss_d1.item(), loss_d2.item(), self.optimizer.param_groups[0]['lr'],
+                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if not loss_adv else 0, loss_d1.item(), loss_d2.item(), self.optimizer.param_groups[0]['lr'],
                        self.timer['iter time'].diff))
                 print('        [cnt: gt: %.1f pred: %.2f][tar: gt: %.1f pred: %.2f]' % (
                 gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA,
@@ -326,20 +326,19 @@ class Trainer():
         loss = self.net.loss
         loss.backward()
 
-        #target
-        pred_tar1, pred_tar2, pred_tar = self.net(tar,gt_tar)
+        loss_adv = None
 
-        loss_adv1 = self.D1.cal_loss(pred_tar1,0)
-        loss_adv2 = self.D2.cal_loss(pred_tar2,0)
+        # target
+        pred_tar1, pred_tar2, pred_tar = self.net(tar, gt_tar)
 
-        loss_adv = self.cfg.LAMBDA_ADV1*loss_adv1
-
-        if self.cfg.DIS > 1:
-            loss_adv += self.cfg.LAMBDA_ADV2*loss_adv2
         if self.cfg.DIS > 0:
+
+            loss_adv = self.D1.cal_loss(pred_tar1,0)*self.cfg.LAMBDA_ADV1
+
+            if self.cfg.DIS > 1:
+                loss_adv += self.D2.cal_loss(pred_tar2,0)*self.cfg.LAMBDA_ADV2
+
             loss_adv.backward()
-        else:
-            loss_adv = 0
 
         return loss,loss_adv,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2
 
