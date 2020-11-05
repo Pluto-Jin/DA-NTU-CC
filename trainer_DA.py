@@ -301,11 +301,11 @@ class Trainer():
             pred1, pred2, pred = self.net(img, gt_img)
             loss = self.net.loss
             loss.backward()
-            '''
             loss_adv = None
 
             # target
             pred_tar1, pred_tar2, pred_tar = self.net(tar, gt_tar)
+            '''
 
             if self.cfg.DIS > 0:
 
