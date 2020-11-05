@@ -186,19 +186,19 @@ class Trainer():
             self.channel1, self.channel2 = 1024, 128
 
         self.D1 = FCDiscriminator(self.channel1, self.bce_loss).cuda()
-        # self.D2 = FCDiscriminator(self.channel2, self.bce_loss).cuda()
+        self.D2 = FCDiscriminator(self.channel2, self.bce_loss).cuda()
         self.D1.apply(weights_init())
-        # self.D2.apply(weights_init())
+        self.D2.apply(weights_init())
 
         self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
-        # self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
+        self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
 
         self.scheduler_D1 = StepLR(self.d1_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
-        # self.scheduler_D2 = StepLR(self.d2_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
+        self.scheduler_D2 = StepLR(self.d2_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
 
         '''loss and lambdas here'''
         self.lambda_adv1 = cfg.LAMBDA_ADV1
-        # self.lambda_adv2 = cfg.LAMBDA_ADV2
+        self.lambda_adv2 = cfg.LAMBDA_ADV2
 
 
         if cfg.PRE_GCC:
@@ -234,7 +234,7 @@ class Trainer():
         self.writer, self.log_txt = logger(self.exp_path, self.exp_name, self.pwd, 'exp', self.source_loader, self.test_loader, resume=cfg.RESUME, cfg=cfg)
 
     def forward(self):
-        #         print('forward!!')
+        print('forward!!')
         # self.validate_V3()
         with open(self.log_txt, 'a') as f:
             f.write(str(self.net) + '\n')
@@ -251,7 +251,7 @@ class Trainer():
             if epoch > self.cfg.LR_DECAY_START:
                 self.scheduler.step()
                 self.scheduler_D1.step()
-                # self.scheduler_D2.step()
+                self.scheduler_D2.step()
 
             print('train time: {:.2f}s'.format(self.timer['train time'].diff))
             print('=' * 20)
@@ -276,7 +276,6 @@ class Trainer():
         self.net.train()
 
         for i in range(max(len(self.source_loader),len(self.target_loader))):
-            print(i,'hhhhhhh')
             torch.cuda.empty_cache()
             self.timer['iter time'].tic()
             img, gt_img = self.source_loader_iter.__next__()
@@ -294,8 +293,8 @@ class Trainer():
 
             for param in self.D1.parameters():
                 param.requires_grad = False
-            # for param in self.D2.parameters():
-            #     param.requires_grad = False
+            for param in self.D2.parameters():
+                param.requires_grad = False
 
             # source
             pred1, pred2, pred = self.net(img, gt_img)
@@ -303,29 +302,25 @@ class Trainer():
             loss.backward()
             loss_adv = None
 
-            # target
-            pred_tar1, pred_tar2, pred_tar = self.net(tar, gt_tar)
-            self.optimizer.step()
+            loss_d1, loss_d2 = None, None
 
+            # target
             if self.cfg.DIS > 0:
+                pred_tar1, pred_tar2, pred_tar = self.net(tar, gt_tar)
 
                 loss_adv = self.D1.cal_loss(pred_tar1, 0) * self.cfg.LAMBDA_ADV1
 
                 if self.cfg.DIS > 1:
                     loss_adv += self.D2.cal_loss(pred_tar2, 0) * self.cfg.LAMBDA_ADV2
 
-                # loss_adv.backward()
-            '''
+                loss_adv.backward()
 
-
-
-            loss_d1, loss_d2 = None, None
-
-            if self.cfg.DIS > 0:
                 #dis loss
                 loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
                 self.d1_opt.step()
-                # self.d2_opt.step()
+                self.d2_opt.step()
+
+            self.optimizer.step()
 
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
@@ -338,10 +333,12 @@ class Trainer():
                 print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
                       (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if loss_adv else 0, loss_d1.item() if loss_d1 else 0, loss_d2.item() if loss_d2 else 0, self.optimizer.param_groups[0]['lr'],
                        self.timer['iter time'].diff))
-                print('        [cnt: gt: %.1f pred: %.2f][tar: gt: %.1f pred: %.2f]' % (
-                gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA,
-                gt_tar[0].sum().data / self.cfg_data.LOG_PARA, pred_tar[0].sum().data / self.cfg_data.LOG_PARA))
-            '''
+                print('        [cnt: gt: %.1f pred: %.2f]' % (
+                gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA))
+
+                if self.cfg.DIS > 0:
+                    print('        [tar: gt: %.1f pred: %.2f]' % (
+                    gt_tar[0].sum().data / self.cfg_data.LOG_PARA, pred_tar[0].sum().data / self.cfg_data.LOG_PARA))
 
         self.writer.add_scalar('lr', self.optimizer.param_groups[0]['lr'], self.epoch + 1)
 
@@ -355,19 +352,18 @@ class Trainer():
 
         for param in self.D1.parameters():
             param.requires_grad = True
-        # for param in self.D2.parameters():
-        #     param.requires_grad = True
+        for param in self.D2.parameters():
+            param.requires_grad = True
 
             #source
         pred1 = pred1.detach()
         pred2 = pred2.detach()
 
-        loss_d1 = None
         loss_d2 = None
 
         if self.cfg.DIS > 0 :
             loss_d1 = self.D1.cal_loss(pred1, 0)
-            # loss_d2 = self.D2.cal_loss(pred2, 0)
+            loss_d2 = self.D2.cal_loss(pred2, 0)
             loss_d1.backward()
         if self.cfg.DIS > 1:
             loss_d2.backward()
@@ -381,13 +377,13 @@ class Trainer():
 
         if self.cfg.DIS > 0:
             loss_d1 = self.D1.cal_loss(pred_tar1, 1)
-            # loss_d2 = self.D2.cal_loss(pred_tar2, 1)
+            loss_d2 = self.D2.cal_loss(pred_tar2, 1)
             loss_d1.backward()
         if self.cfg.DIS > 1:
             loss_d2.backward()
 
-        # loss_D1 += loss_d1
-        # loss_D2 += loss_d2
+        loss_D1 += loss_d1
+        loss_D2 += loss_d2
 
         return loss_D1,loss_D2
 
