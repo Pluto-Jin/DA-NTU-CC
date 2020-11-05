@@ -305,7 +305,7 @@ class Trainer():
                 self.timer['iter time'].toc(average=False)
 
                 print('[ep %d][it %d][loss %.4f][loss_adv %.4f][loss_d1 %.4f][loss_d2 %.4f][lr %.8f][%.2fs]' % \
-                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if loss_adv else 0, loss_d1.item(), loss_d2.item() if loss_d2 else 0, self.optimizer.param_groups[0]['lr'],
+                      (self.epoch + 1, i + 1, loss.item(), loss_adv.item() if loss_adv else 0, loss_d1.item() if loss_d1 else 0, loss_d2.item() if loss_d2 else 0, self.optimizer.param_groups[0]['lr'],
                        self.timer['iter time'].diff))
                 print('        [cnt: gt: %.1f pred: %.2f][tar: gt: %.1f pred: %.2f]' % (
                 gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[0].sum().data / self.cfg_data.LOG_PARA,
@@ -354,14 +354,14 @@ class Trainer():
             #source
         pred1 = pred1.detach()
         pred2 = pred2.detach()
+
+        loss_d1 = None
         loss_d2 = None
 
-        loss_d1 = self.D1.cal_loss(pred1, 0)
-        # loss_d2 = self.D2.cal_loss(pred2, 0)
         if self.cfg.DIS > 0 :
+            loss_d1 = self.D1.cal_loss(pred1, 0)
+            # loss_d2 = self.D2.cal_loss(pred2, 0)
             loss_d1.backward()
-        else:
-            loss_d1 = 0
         if self.cfg.DIS > 1:
             loss_d2.backward()
 
@@ -372,16 +372,14 @@ class Trainer():
         pred_tar1 = pred_tar1.detach()
         pred_tar2 = pred_tar2.detach()
 
-        loss_d1 = self.D1.cal_loss(pred_tar1, 1)
-        # loss_d2 = self.D2.cal_loss(pred_tar2, 1)
         if self.cfg.DIS > 0:
+            loss_d1 = self.D1.cal_loss(pred_tar1, 1)
+            # loss_d2 = self.D2.cal_loss(pred_tar2, 1)
             loss_d1.backward()
-        else:
-            loss_d1 = 0
         if self.cfg.DIS > 1:
             loss_d2.backward()
 
-        loss_D1 += loss_d1
+        # loss_D1 += loss_d1
         # loss_D2 += loss_d2
 
         return loss_D1,loss_D2
