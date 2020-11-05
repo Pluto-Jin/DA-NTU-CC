@@ -185,15 +185,15 @@ class Trainer():
         if cfg.NET == 'Res50':
             self.channel1, self.channel2 = 1024, 128
 
-        # self.D1 = FCDiscriminator(self.channel1, self.bce_loss).cuda()
+        self.D1 = FCDiscriminator(self.channel1, self.bce_loss).cuda()
         # self.D2 = FCDiscriminator(self.channel2, self.bce_loss).cuda()
-        # self.D1.apply(weights_init())
+        self.D1.apply(weights_init())
         # self.D2.apply(weights_init())
 
-        # self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
+        self.d1_opt = optim.Adam(self.D1.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
         # self.d2_opt = optim.Adam(self.D2.parameters(), lr=self.cfg.D_LR, betas=(0.9, 0.99))
 
-        # self.scheduler_D1 = StepLR(self.d1_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
+        self.scheduler_D1 = StepLR(self.d1_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
         # self.scheduler_D2 = StepLR(self.d2_opt, step_size=cfg.NUM_EPOCH_LR_DECAY, gamma=cfg.LR_DECAY)
 
         '''loss and lambdas here'''
@@ -292,20 +292,19 @@ class Trainer():
             # loss, loss_adv, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar)
             self.optimizer.zero_grad()
 
-            # for param in self.D1.parameters():
-            #     param.requires_grad = False
+            for param in self.D1.parameters():
+                param.requires_grad = False
             # for param in self.D2.parameters():
             #     param.requires_grad = False
 
             # source
             pred1, pred2, pred = self.net(img, gt_img)
-            # loss = self.net.loss
-            # loss.backward()
-            # loss_adv = None
+            loss = self.net.loss
+            loss.backward()
+            loss_adv = None
 
             # target
             pred_tar1, pred_tar2, pred_tar = self.net(tar, gt_tar)
-            '''
 
             if self.cfg.DIS > 0:
 
@@ -321,6 +320,7 @@ class Trainer():
 
             loss_d1, loss_d2 = None, None
 
+            '''
             if self.cfg.DIS > 0:
                 #dis loss
                 loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
