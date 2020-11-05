@@ -314,7 +314,7 @@ class Trainer():
                 if self.cfg.DIS > 1:
                     loss_adv += self.D2.cal_loss(pred_tar2, 0) * self.cfg.LAMBDA_ADV2
 
-                loss_adv.backward()
+                # loss_adv.backward()
             '''
 
 
