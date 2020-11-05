@@ -30,6 +30,7 @@ __C.GAN = 'Vanilla' #Vanilla, LS
 __C.LAMBDA_ADV1 = 0.0002
 __C.LAMBDA_ADV2 = 0.001
 __C.TWO_DIS = False
+__C.D_LR = 1e-5
 
 
 __C.PRE_GCC = False # use the pretrained model on GCC dataset
@@ -41,10 +42,10 @@ __C.RESUME_PATH = './exp/04-25_09-19_SHHB_VGG_1e-05/latest_state.pth' #
 __C.GPU_ID = [0] # sigle gpu: [0], [1] ...; multi gpus: [0,1]
 
 # learning rate settings
-__C.LR = 1e-5 # learning rate
-__C.LR_DECAY = 1 # decay rate
-__C.LR_DECAY_START = -1 # when training epoch is more than it, the learning rate will be begin to decay
-__C.NUM_EPOCH_LR_DECAY = 1 # decay frequency
+__C.LR = 2e-5 # learning rate
+__C.LR_DECAY = 0.5 # decay rate
+__C.LR_DECAY_START = 20 # when training epoch is more than it, the learning rate will be begin to decay
+__C.NUM_EPOCH_LR_DECAY = 10 # decay frequency
 __C.MAX_EPOCH = 50
 
 # multi-task learning weights, no use for single model, such as MCNN, VGG, VGG_DECODER, Res50, CSRNet, and so on

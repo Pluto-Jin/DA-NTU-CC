@@ -73,7 +73,7 @@ def loading_data():
     val_set = NTU(cfg_data.DATA_PATH + test_list, 'test', main_transform=None, img_transform=img_transform, gt_transform=gt_transform)
     val_loader = DataLoader(val_set, batch_size=cfg_data.VAL_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=False)
 
-    if (cfg_data.VAL_MODE=='hall_DA'):
+    if cfg_data.VAL_MODE=='hall_DA':
         train_target_set = NTU(cfg_data.DATA_PATH + train_target_list, 'train', main_transform=None, img_transform=img_transform,
                       gt_transform=gt_transform)
         train_target_loader = DataLoader(train_target_set, batch_size=cfg_data.TRAIN_BATCH_SIZE, num_workers=8, shuffle=True,
