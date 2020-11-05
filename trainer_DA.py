@@ -325,7 +325,7 @@ class Trainer():
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
                 self.writer.add_scalar('train_loss', loss.item(), self.i_tb)
-                self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
+                #self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
                 # self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
                 # self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
                 self.timer['iter time'].toc(average=False)
