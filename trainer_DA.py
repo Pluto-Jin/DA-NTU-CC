@@ -276,6 +276,7 @@ class Trainer():
         self.net.train()
 
         for i in range(max(len(self.source_loader),len(self.target_loader))):
+            torch.cuda.empty_cache()
             self.timer['iter time'].tic()
             img, gt_img = self.source_loader_iter.__next__()
             tar, gt_tar = self.target_loader_iter.__next__()
@@ -289,18 +290,21 @@ class Trainer():
             #gen loss
             loss, loss_adv, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar)
 
-            #dis loss
-            loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
-
             self.optimizer.step()
-            self.d1_opt.step()
-            # self.d2_opt.step()
+
+            loss_d1, loss_d2 = None, None
+
+            if self.cfg.DIS > 0:
+                #dis loss
+                loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
+                self.d1_opt.step()
+                # self.d2_opt.step()
 
             if (i + 1) % self.cfg.PRINT_FREQ == 0:
                 self.i_tb += 1
                 self.writer.add_scalar('train_loss', loss.item(), self.i_tb)
                 self.writer.add_scalar('loss_adv', loss_adv.item(), self.i_tb)
-                self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
+                # self.writer.add_scalar('loss_d1', loss_d1.item(), self.i_tb)
                 # self.writer.add_scalar('loss_d2', loss_d2.item(), self.i_tb)
                 self.timer['iter time'].toc(average=False)
 
