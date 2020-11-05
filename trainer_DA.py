@@ -287,7 +287,7 @@ class Trainer():
             gt_tar = Variable(gt_tar).cuda()
 
             #gen loss
-            loss, loss_adv, loss_adv1, loss_adv2, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar)
+            loss, loss_adv, pred, pred1, pred2, pred_tar, pred_tar1, pred_tar2 = self.gen_update(img,tar,gt_img,gt_tar)
 
             #dis loss
             loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
@@ -339,7 +339,7 @@ class Trainer():
         if self.cfg.DIS > 0:
             loss_adv.backward()
 
-        return loss,loss_adv,loss_adv1,loss_adv2,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2
+        return loss,loss_adv,pred,pred1,pred2,pred_tar,pred_tar1,pred_tar2
 
     def dis_update(self,pred1,pred2,pred_tar1,pred_tar2):
         self.d1_opt.zero_grad()
