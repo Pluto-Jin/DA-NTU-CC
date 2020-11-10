@@ -299,7 +299,8 @@ class Trainer():
             # source
             pred1, pred2, pred = self.net(img, gt_img)
             loss = self.net.loss
-            loss.backward()
+            if not self.cfg.LOSS_TOG:
+                loss.backward()
             loss_adv = None
 
             loss_d1, loss_d2 = None, None
@@ -313,7 +314,11 @@ class Trainer():
                 if self.cfg.DIS > 1:
                     loss_adv += self.D2.cal_loss(pred_tar2, 0) * self.cfg.LAMBDA_ADV2
 
-                loss_adv.backward()
+                if not self.cfg.LOSS_TOG:
+                    loss_adv.backward()
+                else:
+                    loss += loss_adv
+                    loss.backward()
 
                 #dis loss
                 loss_d1, loss_d2 = self.dis_update(pred1,pred2,pred_tar1,pred_tar2)
@@ -364,8 +369,9 @@ class Trainer():
         if self.cfg.DIS > 0 :
             loss_d1 = self.D1.cal_loss(pred1, 0)
             loss_d2 = self.D2.cal_loss(pred2, 0)
-            loss_d1.backward()
-        if self.cfg.DIS > 1:
+            if not self.cfg.LOSS_TOG:
+                loss_d1.backward()
+        if self.cfg.DIS > 1 and not self.cfg.LOSS_TOG:
             loss_d2.backward()
 
         loss_D1 = loss_d1
@@ -378,12 +384,17 @@ class Trainer():
         if self.cfg.DIS > 0:
             loss_d1 = self.D1.cal_loss(pred_tar1, 1)
             loss_d2 = self.D2.cal_loss(pred_tar2, 1)
-            loss_d1.backward()
-        if self.cfg.DIS > 1:
+            if not self.cfg.LOSS_TOG:
+                loss_d1.backward()
+        if self.cfg.DIS > 1 and not self.cfg.LOSS_TOG:
             loss_d2.backward()
 
         loss_D1 += loss_d1
         loss_D2 += loss_d2
+
+        if self.cfg.LOSS_TOG:
+            loss_D1.backward()
+            loss_D2.backward()
 
         return loss_D1,loss_D2
 
