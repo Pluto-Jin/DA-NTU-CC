@@ -12,25 +12,26 @@ __C.SEED = 3035 # random seed,  for reproduction
 __C.DATASET = 'NTU' # dataset selection: GCC, SHHA, SHHB, UCF50, QNRF, WE, Mall, UCSD
 
 if __C.DATASET == 'UCF50':# only for UCF50
-	from datasets.UCF50.setting import cfg_data
-	__C.VAL_INDEX = cfg_data.VAL_INDEX 
+    from datasets.UCF50.setting import cfg_data
+    __C.VAL_INDEX = cfg_data.VAL_INDEX 
 
 if __C.DATASET == 'GCC':# only for GCC
-	from datasets.GCC.setting import cfg_data
-	__C.VAL_MODE = cfg_data.VAL_MODE 
+    from datasets.GCC.setting import cfg_data
+    __C.VAL_MODE = cfg_data.VAL_MODE 
 if __C.DATASET == 'NTU':# only for GCC
-	from datasets.NTU.setting import cfg_data
-	__C.VAL_MODE = cfg_data.VAL_MODE
+    from datasets.NTU.setting import cfg_data
+    __C.VAL_MODE = cfg_data.VAL_MODE
+
 
 __C.NET = 'Res50' # net selection: MCNN, AlexNet, VGG, VGG_DECODER, Res50, CSRNet, SANet
 
 #DA settings
 __C.DA = True #domain adaptation flag
 __C.GAN = 'Vanilla' #Vanilla, LS
-__C.LAMBDA_ADV1 = 2e-6 #2e-4(not good),2e-5,2e-6,2e-7
+__C.LAMBDA_ADV1 = 2e-8 #2e-4(not good),2e-5(not good),2e-6(not good),2e-7,2e-8
 __C.LAMBDA_ADV2 = 0.001
 __C.DIS = 1
-__C.D_LR = 1e-5
+__C.D_LR = 1e-5 #discriminator lr 1e-5(default),1e-6(just so so)
 
 
 __C.PRE_GCC = False # use the pretrained model on GCC dataset
@@ -39,10 +40,10 @@ __C.PRE_GCC_MODEL = './exp/best_state.pth' # path to model
 __C.RESUME = False # contine training
 __C.RESUME_PATH = './exp/04-25_09-19_SHHB_VGG_1e-05/latest_state.pth' # 
 
-__C.GPU_ID = [0] # sigle gpu: [0], [1] ...; multi gpus: [0,1]
+__C.GPU_ID = [0] # single gpu: [0], [1] ...; multi gpus: [0,1]
 
 # learning rate settings
-__C.LR = 2e-5 # learning rate
+__C.LR = 2e-5 # learning rate 2e-5(default),1e-5(just so so),1e-6
 __C.LR_DECAY = 0.5 # decay rate
 __C.LR_DECAY_START = 20 # when training epoch is more than it, the learning rate will be begin to decay
 __C.NUM_EPOCH_LR_DECAY = 10 # decay frequency
