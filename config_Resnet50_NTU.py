@@ -33,6 +33,8 @@ __C.LAMBDA_ADV2 = 0.001
 __C.DIS = 1
 __C.D_LR = 1e-5 #discriminator lr 1e-5(default),1e-6(just so so)
 
+__C.LOSS_TOG = 0 #source and target loss backward together or not
+
 
 __C.PRE_GCC = False # use the pretrained model on GCC dataset
 __C.PRE_GCC_MODEL = './exp/best_state.pth' # path to model
