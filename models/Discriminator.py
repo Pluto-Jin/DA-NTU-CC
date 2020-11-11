@@ -16,7 +16,7 @@ class FCDiscriminator(nn.Module):
 
 		self.leaky_relu = nn.LeakyReLU(negative_slope=0.2, inplace=True)
 		#self.up_sample = nn.Upsample(scale_factor=32, mode='bilinear')
-		#self.sigmoid = nn.Sigmoid()
+		self.sigmoid = nn.Sigmoid()
 		self.loss = loss
 
 
@@ -43,7 +43,7 @@ class FCDiscriminator(nn.Module):
 		# print(x)
 
 		fill = torch.ones if gt else torch.zeros
-		loss = self.loss(x, fill(x.shape).cuda())
+		loss = self.loss(self.sigmoid(x), fill(x.shape).cuda())
 		# print(loss.item())
 
 		return loss

@@ -178,7 +178,7 @@ class Trainer():
 
         '''discriminator'''
         if cfg.GAN == 'Vanilla':
-            self.bce_loss = torch.nn.BCEWithLogitsLoss()
+            self.bce_loss = torch.nn.BCELoss()
         elif cfg.GAN == 'LS':
             self.bce_loss = torch.nn.MSELoss()
 
