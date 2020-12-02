@@ -25,8 +25,6 @@ class NTU(data.Dataset):
         
         for line in lines:
             tmp = line.split(' ')
-            if len(tmp) == 1:
-                tmp = ['hall'] + tmp
             self.file_folder.append(tmp[0])
             self.file_name.append(tmp[1].split('.')[0])
 

@@ -67,6 +67,10 @@ def loading_data():
         train_list = 'Train Test Splitting list/normal_training/NTU_train_correct.txt'
         train_target_list = 'new_split_list/train.txt'
 
+    elif cfg_data.VAL_MODE=='cycleGAN':
+        test_list = 'new_split_list/cycle_test.txt'
+        train_list = 'Train Test Splitting list/normal_training/NTU_train_correct.txt'
+
     train_set = NTU(cfg_data.DATA_PATH + train_list, 'train',main_transform=train_main_transform, img_transform=img_transform, gt_transform=gt_transform)
     train_loader = DataLoader(train_set, batch_size=cfg_data.TRAIN_BATCH_SIZE, num_workers=8, shuffle=True, drop_last=True)
 
