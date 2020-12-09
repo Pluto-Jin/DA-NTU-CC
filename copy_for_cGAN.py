@@ -23,7 +23,7 @@ def copy(f,des):
         path = os.path.join(folder[i],'pngs_544_960',name[i]+'.png')
         tar = os.path.join(des,name[i]+'.png')
         copyfile(path,tar)
-        print('copied',path,'to',tar)
+        print('copied',path,'to',tar,'{}/{}'.format(i+1,len(forlder)))
 
 copy(a,'trainA')
 copy(b,'trainB')

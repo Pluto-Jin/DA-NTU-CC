@@ -47,7 +47,8 @@ test_list={'normal_training':'NTU_test_correct.txt',
            'density_train_ssc_test_ab':'NTU_density_split_test_ab_correct.txt',
            'density_train_ab_test_ssc':'NTU_density_split_test_ssc_correct.txt',
            'hall':'test.txt',
-           'hall_train':'train.txt'
+           'hall_train':'train.txt',
+           'cycleGAN':'cycle_test.txt'
           }
 
 parser = argparse.ArgumentParser(description='Crowd Counting NTU dataset Inference')
@@ -134,8 +135,9 @@ for file in glob.glob('/export/home/jinc0008/ntu_random_test/*'):
 with open(os.path.join(args.data,'new_split_list',test_list[args.test_mode])) as f:
     lines = f.readlines()
 for line in lines:
-    file_folder.append('hall')
-    file_name.append(line.split('.')[0])
+    tmp = line.split(' ')
+    file_folder.append(tmp[0])
+    file_name.append(tmp[1].split('.')[0])
     
     
     
