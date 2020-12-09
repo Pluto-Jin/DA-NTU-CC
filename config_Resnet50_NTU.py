@@ -27,8 +27,8 @@ __C.NET = 'Res50' # net selection: MCNN, AlexNet, VGG, VGG_DECODER, Res50, CSRNe
 
 #DA settings
 __C.DA = True #domain adaptation flag
-__C.GAN = 'Vanilla' #Vanilla, LS
-__C.LAMBDA_ADV1 = 2e-8 #2e-4(not good),2e-5(not good),2e-6(not good),2e-7,2e-8(better convergence) //for Vanilla GAN
+__C.GAN = 'LS' #Vanilla, LS
+__C.LAMBDA_ADV1 = 2e-4 #2e-4(not good),2e-5(not good),2e-6(not good),2e-7,2e-8(better convergence) //for Vanilla GAN
 
 __C.LAMBDA_ADV2 = 0.001
 __C.DIS = 1
@@ -48,7 +48,7 @@ __C.GPU_ID = [0] # single gpu: [0], [1] ...; multi gpus: [0,1]
 # learning rate settings
 __C.LR = 2e-5 # learning rate 2e-5(default),1e-5(just so so),1e-6
 __C.LR_DECAY = 0.9 # decay rate
-__C.LR_DECAY_START = 10 # when training epoch is more than it, the learning rate will be begin to decay
+__C.LR_DECAY_START = 20 # when training epoch is more than it, the learning rate will be begin to decay
 __C.NUM_EPOCH_LR_DECAY = 1 # decay frequency
 __C.MAX_EPOCH = 50
 
