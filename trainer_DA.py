@@ -330,9 +330,8 @@ class Trainer():
                 print('        [cnt: gt: %.1f pred: %.2f]' % (
                 gt_img[0].sum().data / self.cfg_data.LOG_PARA, pred[-1][0].sum().data / self.cfg_data.LOG_PARA))
 
-                if self.cfg.DIS > 0:
-                    print('        [tar: gt: %.1f pred: %.2f]' % (
-                    gt_tar[0].sum().data / self.cfg_data.LOG_PARA, pred_tar[-1][0].sum().data / self.cfg_data.LOG_PARA))
+                print('        [tar: gt: %.1f pred: %.2f]' % (
+                gt_tar[0].sum().data / self.cfg_data.LOG_PARA, pred_tar[-1][0].sum().data / self.cfg_data.LOG_PARA))
 
         self.writer.add_scalar('lr', self.optimizer.param_groups[0]['lr'], self.epoch + 1)
 
