@@ -1,0 +1,13 @@
+-args:Namespace(data='/home/jinc0008/dataset/CrowdCounting/', gpu='0', model_path='./exp/Res50_NTU_50/10-19_15-10_NTU_Res50_1e-05_normal/best_state.pth', model_type='Resnet50', no_cuda=False, save='/home/jinc0008/temp/', test_mode='hall') -
+-Num_parameters:8674625 -
+-Mean MAE:1.13 -
+-Mean MSE:1.89 -
+-Mean MAE [0,1]:0.59 -
+-Mean MSE [0,1]:1.13 -
+-Mean MAE [2,4):1.01 -
+-Mean MSE [2,4):1.35 -
+-Mean MAE [4,10):1.90 -
+-Mean MSE [4,10):2.51 -
+-Mean MAE [10, ):4.50 -
+-Mean MSE [10, ):5.36 -
+-Mean FPS:107.16s -
